@@ -6,29 +6,38 @@
 </head>
 <body>
 
-<h1>Design your own cupcake 🧁</h1>
-
-<img src="public/images/cupcakelogo.png">
+<div class="header"></div>
+    <h1>Design your own cupcake 🧁</h1>
+    <img src="public/images/cupcakelogo.png">
+</div>
 
 <br>
 
-<form action="/"></form>
-    <label for="mail">Mail:</label>
-    <input type="text" id="mail">
+<div class="siginBox">
+    <form>
+        <div id="signinMail">
+            <label for="mail">Mail:</label>
+            <input type="text" id="mail">
+        </div>
 
-    <br>
+        <br>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password">
+        <div id="signinPassword">
+            <label for="password">Password:</label>
+            <input type="password" id="password">
+        </div>
 
-    <br>
+        <br>
 
-    <input type="submit" value="Submit">
+        <div id="signinButton">
+            <input type="submit" value="Login">
+        </div>
 
-    <br>
+        <br>
 
-    <a href="https://www.w3schools.com">Forgot password</a>
-</form>
+        <a href="https://www.w3schools.com">Forgot password</a>
+    </form>
+</div>
 
 </body>
 </html>
