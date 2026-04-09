@@ -1,0 +1,106 @@
+body{
+    background-image: url("../images/cupcake_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0;
+    color: white;
+}
+
+.infoTextLeft{
+    color:black;
+    margin-left: 20px;
+}
+
+h1{
+    font-family: "Inter";
+}
+
+#frontsidetitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-family: "Inter";
+}
+
+#signinbutton button{
+    width: 400px;
+    height: 80px;
+    border-radius: 15px;
+    margin-top: 50px;
+    background-color: #F69EE5;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: "Inter";
+}
+
+#signupbutton button{
+    width: 400px;
+    height: 80px;
+    border-radius: 15px;
+    margin-top: 50px;
+    background-color: #F69EE5;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: "Inter";
+}
+
+.mainobjectbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: auto;
+    border-radius: 25px;
+    width: 600px;
+    height: 700px;
+    background: white;
+}
+
+#boxline{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid black;
+    margin: 1em 0;
+    padding: 0;
+}
+
+#cupcakelogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cupcakelogo img{
+    height: auto;
+    width: 500px;
+}
+
+#frontsideheader{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.topbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 10px;
+
+    font-family: "Inter";
+    font-optical-sizing: auto;
+    font-style: normal;
+    color:black;
+
+    width:70%;
+    height:10%;
+    background:white;
+}
+
