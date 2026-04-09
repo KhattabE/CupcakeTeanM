@@ -38,10 +38,10 @@ body{
 
 }
 
-#signinbutton button{
+#signinMail input{
     outline: 2px solid black;
     width: 400px;
-    height: 140px;
+    height: 80px;
     border-radius: 15px;
     margin-top: 80px;
     background-color: #F69EE5;
@@ -50,10 +50,10 @@ body{
     font-family: "Inter";
 }
 
-#signupbutton button{
+#signinPassword input{
     outline: 2px solid black;
     width: 400px;
-    height: 140px;
+    height: 80px;
     border-radius: 15px;
     margin-top: 80px;
     background-color: #F69EE5;
@@ -62,7 +62,7 @@ body{
     font-family: "Inter";
 }
 
-.mainobjectbox{
+.signinBox{
     outline: 3px solid black;
     display: flex;
     flex-direction: column;
@@ -110,6 +110,7 @@ body{
     margin: auto;
     margin-top: 30px;
     border-radius: 10px;
+    margin-bottom: 200px;
 
     font-family: "Inter";
     font-optical-sizing: auto;
