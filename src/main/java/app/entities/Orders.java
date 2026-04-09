@@ -1,23 +1,21 @@
 package app.entities;
 
-import javax.xml.crypto.Data;
+import java.sql.Date;
 
 public class Orders {
-   private int orderId;
-   private int userId;
-   private String status;
-   private Data createdAt;
-   private double total;
+    private int orderId;
+    private int userId;
+    private String status;
+    private Date createdAt;
+    private double total;
 
-
-    public Orders(int orderId, int userId, String status, Data createdAt, double total) {
+    public Orders(int orderId, int userId, String status, Date createdAt, double total) {
         this.orderId = orderId;
         this.userId = userId;
         this.status = status;
         this.createdAt = createdAt;
         this.total = total;
     }
-
 
     public int getOrderId() {
         return orderId;
@@ -43,11 +41,11 @@ public class Orders {
         this.status = status;
     }
 
-    public Data getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Data createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
