@@ -4,12 +4,12 @@ public class Cupcake {
 
     private int cupcakeId;
     private int cupcakeTopId;
-    private int cupcakeBotomId;
+    private int cupcakeBottomId;
 
     public Cupcake(int cupcakeId, int cupcakeTopId, int cupcakeBotomId) {
         this.cupcakeId = cupcakeId;
         this.cupcakeTopId = cupcakeTopId;
-        this.cupcakeBotomId = cupcakeBotomId;
+        this.cupcakeBottomId = cupcakeBotomId;
     }
 
     public int getCupcakeId() {
@@ -20,8 +20,8 @@ public class Cupcake {
         return cupcakeTopId;
     }
 
-    public int getCupcakeBotomId() {
-        return cupcakeBotomId;
+    public int getCupcakeBottomId() {
+        return cupcakeBottomId;
     }
 
     public void setCupcakeId(int cupcakeId) {
@@ -32,7 +32,7 @@ public class Cupcake {
         this.cupcakeTopId = cupcakeTopId;
     }
 
-    public void setCupcakeBotomId(int cupcakeBotomId) {
-        this.cupcakeBotomId = cupcakeBotomId;
+    public void setCupcakeBottomId(int cupcakeBottomId) {
+        this.cupcakeBottomId = cupcakeBottomId;
     }
 }
