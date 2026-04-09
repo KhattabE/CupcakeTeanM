@@ -3,37 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign In</title>
+    <link rel="stylesheet" href="../public/css/signinStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="header"></div>
-    <h1>Design your own cupcake 🧁</h1>
-    <img src="public/images/cupcakelogo.png">
+<div class="topbar">
+    <div id="info">
+        <a href="#about" class="infoTextLeft">About</a>
+        <a href="#contact" class="infoTextLeft">Contact</a>
+    </div>
+    <div id="frontsideheader">
+        <h2>Design your own cupcake 🧁</h2>
+    </div>
+    <div id="signinfo">
+        <a href="#signup" class="infoTextRight">Sign up</a>
+        <a href="#signin" class="infoTextRight">Sign in</a>
+    </div>
 </div>
 
-<br>
 
-<div class="siginBox">
+<div class="signinBox">
     <form>
-        <div id="signinMail">
-            <label for="mail">Mail:</label>
-            <input type="text" id="mail">
+        <div id="cupcakelogo">
+            <img src="../public/images/cupcakelogo.png">
+            <hr id="boxline">
         </div>
 
-        <br>
+        <div id="signinMail">
+            <label for="mail">Mail:</label>
+            <input type="text" placeholder="Mail" id="mail">
+        </div>
+
 
         <div id="signinPassword">
             <label for="password">Password:</label>
-            <input type="password" id="password">
+            <input type="password" placeholder="Password" id="password">
         </div>
 
-        <br>
 
         <div id="signinButton">
             <input type="submit" value="Login">
         </div>
 
-        <br>
 
         <a href="https://www.w3schools.com">Forgot password</a>
     </form>
