@@ -3,29 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign up</title>
+    <link rel="stylesheet" href="../public/css/signupStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <img src="../public/images/cupcakelogo.png">
-        <h1>Sign up to design your cupcake 🧁</h1>
+<div class="topbar">
+    <div id="info">
+        <a href="#about" class="infoTextLeft">About</a>
+        <a href="#contact" class="infoTextLeft">Contact</a>
     </div>
+    <div id="frontsideheader">
+        <h2>Design your own cupcake 🧁</h2>
+    </div>
+    <div id="signinfo">
+        <a href="#signup" class="infoTextRight">Sign up</a>
+        <a href="#signin" class="infoTextRight">Sign in</a>
+    </div>
+</div>
 
-    <div class="signup-card">
+    <div class="signupBox">
+        <div id="createUserText">
+            <h1>Create User</h1>
+        </div>
 
         <form class="signup-form">
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="userEmail" placeholder="Email">
+            <div id="signupMail">
+                <input type="email" id="email" name="userEmail" placeholder="Mail">
+            </div>
 
-                <label for="password">Password:</label>
+
+            <div id="signupPassword">
                 <input type="password" id="password"  name="userPassword" placeholder="Password">
+            </div>
 
-                <label for="confirmPassword">Confirm password:</label>
+            <div id="signupConfirmPassword">
                 <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repeat Password">
+            </div>
+            <hr id="boxline">
 
-                 <button type="submit">Sign up</button>
+            <div id="signupFirstName">
+                <input type="password" id="firstName" name="firstName" placeholder="First Name">
+            </div>
+
+            <div id="signupLastName">
+                <input type="password" id="lastName" name="lastName" placeholder="Last Name">
+            </div>
+
+
+            <div id="signupButton">
+                <button type="submit" value="Sign Up">Sign up</button>
+            </div>
+
         </form>
 
         </div>
