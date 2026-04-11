@@ -1,0 +1,199 @@
+body{
+    background-image: url("../images/cupcake_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0;
+    color: white;
+}
+
+.infoTextLeft{
+    color:black;
+    margin-left: 20px;
+}
+
+.infoTextRight{
+    color:black;
+    margin-right: 20px;
+}
+
+#frontsideheader h2{
+    font-family: "Inter";
+    font-size: 30px;
+}
+
+#frontsidetitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-family: "Inter";
+
+}
+
+#buildYourCupcake button{
+    outline: 2px solid black;
+    width: 500px;
+    height: 100px;
+    border-radius: 25px;
+    margin-top: 120px;
+    background-color: #F69EE5;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: "Inter";
+}
+
+#viewBasket button{
+    outline: 2px solid black;
+    width: 500px;
+    height: 100px;
+    border-radius: 25px;
+    margin-top: 20px;;
+    background-color: #F69EE5;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: "Inter";
+}
+
+#viewOrders button{
+    outline: 2px solid black;
+    width: 500px;
+    height: 100px;
+    border-radius: 25px;
+    margin-top: 20px;
+    background-color: #F69EE5;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: "Inter";
+}
+
+#createUserText{
+    display: flex;
+    color:black;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: "Inter";
+}
+
+.pinkoutertitlebox{
+    outline: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 auto -30px auto;
+    border-radius:15px;
+    position: relative;
+    z-index: 2;
+    width: 500px;
+    height: 60px;
+    background: #F69EE5;
+}
+
+
+.pinkoutertitlebox h2{
+    font-family: inter;
+    color:black;
+    font-size: 40px;
+    margin:auto;
+}
+
+.pinkouterbox{
+    outline: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: auto;
+    border-radius: 25px;
+    width: 630px;
+    height: 840px;
+    background: #F69EE5;
+}
+
+.mainobjectbox{
+    outline: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: auto;
+    margin-top: 70px;
+    border-radius: 25px;
+    width: 600px;
+    height: 740px;
+    background: white;
+}
+
+#signupButton{
+    display: flex;
+    justify-content: center;
+}
+
+#signupButton button{
+    outline: 2px solid black;
+    border-radius: 25px;
+    width: 400px;
+    margin-top: 40px;
+    background-color: #67E687;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: "Inter";
+}
+
+
+
+#forgotPassword{
+    text-decoration: none;
+    display: block;
+    color:black;
+    margin-top: 10px;
+    font-family: Inter;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+
+.boxline{
+    display: block;
+    height: 2px;
+    width: 80%;
+    border: 0;
+    border-top: 2px solid #F69EE5;
+    margin: 1em 0;
+    margin-top: 50px;
+    padding: 0;
+}
+
+::placeholder{
+    color: black;
+}
+
+#frontsideheader{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.topbar{
+    outline: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 10px;
+    margin-bottom: 200px;
+
+    font-family: "Inter";
+    font-optical-sizing: auto;
+    font-style: normal;
+    color:black;
+
+    width:70%;
+    height:10%;
+    background:white;
+}
