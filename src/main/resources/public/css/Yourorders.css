@@ -1,0 +1,340 @@
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-image: url("../images/cupcake_background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.topbar {
+    padding: 14px 48px 6px 48px;
+}
+
+.topbar a {
+    color: #a8a8a8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.pagewrapper {
+    width: 100%;
+    min-height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0 30px 0;
+    box-sizing: border-box;
+}
+
+.headerbox {
+    width: 92%;
+    max-width: 1280px;
+    min-height: 84px;
+    background: #eab6e3;
+    border: 2px solid black;
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 26px;
+    box-sizing: border-box;
+    margin-bottom: 64px;
+}
+
+#saldoBox {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#saldoText {
+    color: #6f1868;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+#saldoAmount {
+    background: #ec9bdd;
+    padding: 14px 24px;
+    border-radius: 14px;
+    border: 1px solid black;
+    font-size: 18px;
+    font-weight: 800;
+    color: black;
+    min-width: 135px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.headerbox h1 {
+    margin: 0;
+    font-size: 64px;
+    font-weight: 400;
+    color: black;
+    text-align: center;
+}
+
+#profileBox {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#profileBox a,
+#profileBox span {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.mainobjectbox {
+    width: 92%;
+    max-width: 1180px;
+    background: #e39ad8;
+    border-radius: 22px;
+    border: 2px solid black;
+    margin-top: 8px;
+    padding: 70px 26px 26px 26px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+#builderTitleBox {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #df92d4;
+    padding: 10px 40px;
+    border-radius: 14px;
+    border: 2px solid black;
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
+}
+
+.ordersGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.ordersColumn {
+    background: #e39ad8;
+    border-radius: 18px;
+    border: 2px solid black;
+    padding: 18px;
+    position: relative;
+    min-height: 520px;
+    box-sizing: border-box;
+}
+
+.columnTitle {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 260px;
+    text-align: center;
+    background: #df92d4;
+    border: 2px solid black;
+    border-radius: 14px;
+    padding: 6px 18px;
+    color: #6f1868;
+    font-size: 28px;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.ordersList {
+    margin-top: 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    max-height: 470px;
+    overflow-y: auto;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+/* scrollbar */
+.ordersList::-webkit-scrollbar {
+    width: 10px;
+}
+
+.ordersList::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ordersList::-webkit-scrollbar-thumb {
+    background: #c76ab8;
+    border-radius: 10px;
+}
+
+.orderCard {
+    background: #f4f2f4;
+    border-radius: 14px;
+    box-shadow: 0 4px 8px rgba(91, 39, 93, 0.2);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.orderHeader {
+    background: #efb8e5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px 10px 16px;
+    box-sizing: border-box;
+}
+
+.orderHeader h2 {
+    margin: 0;
+    color: black;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.orderHeader span {
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.orderContent {
+    display: flex;
+    gap: 16px;
+    padding: 14px 16px 8px 16px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.orderImageBox {
+    width: 70px;
+    min-width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.orderImageBox img {
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+}
+
+.orderText {
+    flex: 1;
+}
+
+.orderText p {
+    margin: 0 0 6px 0;
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.orderCard hr {
+    margin: 6px 24px 8px 24px;
+    border: none;
+    border-top: 2px solid #edb3e0;
+}
+
+.statusButton {
+    width: 72%;
+    height: 42px;
+    margin: 0 auto 12px auto;
+    border-radius: 12px;
+    background: #df92d4;
+    border: 2px solid #d17cc3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    box-sizing: border-box;
+}
+
+.statusButton span:first-child {
+    color: black;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.statusDot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.25);
+}
+
+.greenDot {
+    background: #1fdd19;
+}
+
+.yellowDot {
+    background: #ffd600;
+}
+
+@media (max-width: 1100px) {
+    .headerbox h1 {
+        font-size: 48px;
+    }
+
+    .ordersGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .ordersColumn {
+        min-height: 420px;
+    }
+}
+
+@media (max-width: 700px) {
+    .headerbox {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .headerbox h1 {
+        font-size: 38px;
+    }
+
+    #profileBox a,
+    #profileBox span,
+    #saldoText,
+    #saldoAmount {
+        font-size: 16px;
+    }
+
+    .columnTitle {
+        min-width: 220px;
+        font-size: 24px;
+    }
+
+    .orderHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .orderText p {
+        font-size: 16px;
+    }
+
+    .statusButton {
+        width: 86%;
+    }
+
+    .statusButton span:first-child {
+        font-size: 20px;
+    }
+}

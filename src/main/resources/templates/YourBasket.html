@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Basket - The Cupcake Co.</title>
+    <link rel="stylesheet" href="../public/css/YourBasket.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="topbar">
+    <a href="#">Order cupcakes here</a>
+</div>
+
+<div class="pagewrapper">
+
+    <div class="headerbox">
+        <div id="saldoBox">
+            <span id="saldoText">Saldo:</span>
+            <div id="saldoAmount">
+                <span th:text="${currentUser.balance}">198.99 kr.</span>
+            </div>
+        </div>
+
+        <h1>The Cupcake Co. 🧁</h1>
+
+        <div id="profileBox">
+            <a href="#">Profile (mail@gmail.com)</a>
+            <span>/</span>
+            <a href="#">Basket</a>
+        </div>
+    </div>
+
+    <div class="basketMainBox">
+
+        <div id="basketTitleBox">
+            Your basket 🧁
+        </div>
+
+        <div class="basketItemsBox">
+
+            <div class="basketItemCard">
+                <div class="basketItemTopRow">
+                    <h2>3x Strawberry + chocolate topping</h2>
+                    <span class="itemPrice">45 kr.</span>
+                </div>
+
+                <hr>
+
+                <div class="basketItemBottomRow">
+                    <div class="basketImageBox">
+                        <img src="../public/images/ThreeCupcake.png" alt="Cupcakes">
+                    </div>
+
+                    <button type="button" class="removeButton">Remove</button>
+
+                    <div class="quantityControl">
+                        <button type="button" class="quantityButton">-</button>
+                        <input type="number" value="3" min="1" class="quantityInput">
+                        <button type="button" class="quantityButton">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="basketItemCard">
+                <div class="basketItemTopRow">
+                    <h2>3x Strawberry + chocolate topping</h2>
+                    <span class="itemPrice">145 kr.</span>
+                </div>
+
+                <hr>
+
+                <div class="basketItemBottomRow">
+                    <div class="basketImageBox">
+                        <img src="../public/images/ThreeCupcake.png" alt="Cupcakes">
+                    </div>
+
+                    <button type="button" class="removeButton">Remove</button>
+
+                    <div class="quantityControl">
+                        <button type="button" class="quantityButton">-</button>
+                        <input type="number" value="4" min="1" class="quantityInput">
+                        <button type="button" class="quantityButton">+</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="summaryBox">
+        <div class="summaryTopRow">
+            <div class="totalText">Total: 179,00 kr.</div>
+
+            <div class="pickupWrapper">
+                <label for="pickupDate">Pickup date:</label>
+                <select id="pickupDate" name="pickupDate">
+                    <option selected>DropBox date</option>
+                    <option>10 april</option>
+                    <option>11 april</option>
+                    <option>12 april</option>
+                </select>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="confirmButtonWrapper">
+            <button type="button" class="confirmButton">Confirm</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

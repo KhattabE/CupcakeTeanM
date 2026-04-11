@@ -1,0 +1,307 @@
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-image: url("../images/cupcake_background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.topbar {
+    padding: 12px 48px;
+}
+
+.topbar a {
+    color: #a8a8a8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.pagewrapper {
+    width: 100%;
+    min-height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0 30px 0;
+    box-sizing: border-box;
+}
+
+.headerbox {
+    width: 92%;
+    max-width: 1280px;
+    min-height: 84px;
+    background: #eab6e3;
+    border: 2px solid black;
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 26px;
+    box-sizing: border-box;
+    margin-bottom: 70px;
+}
+
+#saldoBox {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#saldoText {
+    color: #6f1868;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+#saldoAmount {
+    background: #ec9bdd;
+    padding: 14px 24px;
+    border-radius: 14px;
+    border: 1px solid black;
+    font-size: 18px;
+    font-weight: 800;
+    color: black;
+    min-width: 135px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.headerbox h1 {
+    margin: 0;
+    font-size: 64px;
+    font-weight: 400;
+    color: black;
+    text-align: center;
+}
+
+#profileBox {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#profileBox a,
+#profileBox span {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.mainobjectbox {
+    width: 92%;
+    max-width: 1120px;
+    background: #e39ad8;
+    border-radius: 22px;
+    border: 2px solid black;
+    margin-top: 16px;
+    padding: 60px 26px 24px 26px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+#builderTitleBox {
+    position: absolute;
+    top: -26px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #df92d4;
+    padding: 10px 34px;
+    border-radius: 14px;
+    border: 2px solid black;
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
+}
+
+.sectionbox {
+    margin-bottom: 22px;
+    background: #f3d4ee;
+    border-radius: 14px;
+    padding: 0;
+    box-shadow: 0 5px 10px rgba(91, 39, 93, 0.2);
+    overflow: hidden;
+}
+
+.sectiontitle {
+    text-align: center;
+    font-weight: 800;
+    color: #6f1868;
+    font-size: 30px;
+    padding: 12px 0 10px 0;
+    background: #e8b0dd;
+}
+
+.sectioncontent {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 18px;
+    background: #f7f2f6;
+    box-sizing: border-box;
+}
+
+.card {
+    width: 180px;
+    min-width: 180px;
+    height: 220px;
+    background: white;
+    border-radius: 14px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    border: 2px solid #f1c1e8;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16);
+    position: relative;
+}
+
+.card input {
+    display: none;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.cardName {
+    color: #6f1868;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.customRadio {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #e58ad3;
+    border-radius: 50%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    background: white;
+}
+
+.card img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    align-self: center;
+}
+
+.price {
+    font-weight: 800;
+    color: #6f1868;
+    font-size: 20px;
+    align-self: flex-end;
+}
+
+.card:has(input:checked) {
+    border: 2px solid #d77cc8;
+}
+
+.card:has(input:checked) .customRadio {
+    background: #d77cc8;
+}
+
+.card:has(input:checked) .cardName,
+.card:has(input:checked) .price {
+    color: #7d1b73;
+}
+
+.bottomBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    background: #f7f2f6;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(91, 39, 93, 0.18);
+}
+
+.quantityBox {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.quantityLabel {
+    color: #6f1868;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.quantityControl {
+    display: flex;
+    align-items: center;
+    border: 2px solid #c96eb8;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    height: 42px;
+}
+
+.quantityButton {
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: #df92d4;
+    color: black;
+    font-size: 28px;
+    font-weight: 800;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.quantityInput {
+    width: 84px;
+    height: 42px;
+    border: none;
+    border-left: 2px solid #c96eb8;
+    border-right: 2px solid #c96eb8;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.priceDisplay {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.priceDisplay span {
+    color: #6f1868;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.basketButton {
+    min-width: 280px;
+    height: 48px;
+    padding: 0 28px;
+    background: #df92d4;
+    border: 2px solid #c96eb8;
+    border-radius: 12px;
+    color: #6f1868;
+    font-size: 22px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.quantityButton:hover,
+.basketButton:hover {
+    filter: brightness(0.98);
+}
