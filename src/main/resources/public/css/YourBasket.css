@@ -1,0 +1,380 @@
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-image: url("../images/cupcake_background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.topbar {
+    padding: 14px 48px 6px 48px;
+}
+
+.topbar a {
+    color: #a8a8a8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.pagewrapper {
+    width: 100%;
+    min-height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0 30px 0;
+    box-sizing: border-box;
+}
+
+.headerbox {
+    width: 92%;
+    max-width: 1280px;
+    min-height: 84px;
+    background: #eab6e3;
+    border: 2px solid black;
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 26px;
+    box-sizing: border-box;
+    margin-bottom: 78px;
+}
+
+#saldoBox {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#saldoText {
+    color: #6f1868;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+#saldoAmount {
+    background: #ec9bdd;
+    padding: 14px 24px;
+    border-radius: 14px;
+    border: 1px solid black;
+    font-size: 18px;
+    font-weight: 800;
+    color: black;
+    min-width: 135px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.headerbox h1 {
+    margin: 0;
+    font-size: 64px;
+    font-weight: 400;
+    color: black;
+    text-align: center;
+}
+
+#profileBox {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#profileBox a,
+#profileBox span {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.basketMainBox {
+    width: 92%;
+    max-width: 1120px;
+    background: #e39ad8;
+    border-radius: 22px;
+    border: 2px solid black;
+    padding: 70px 24px 22px 24px;
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom: 24px;
+}
+
+#basketTitleBox {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #df92d4;
+    padding: 10px 42px;
+    border-radius: 14px;
+    border: 2px solid black;
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
+}
+
+.basketItemsBox {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 8px;
+    box-sizing: border-box;
+}
+
+.basketItemsBox::-webkit-scrollbar {
+    width: 10px;
+}
+
+.basketItemsBox::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.basketItemsBox::-webkit-scrollbar-thumb {
+    background: #c76ab8;
+    border-radius: 10px;
+}
+
+.basketItemCard {
+    background: #f4f2f4;
+    border-radius: 14px;
+    box-shadow: 0 4px 8px rgba(91, 39, 93, 0.2);
+    padding: 0 0 14px 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.basketItemTopRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 28px 10px 28px;
+    box-sizing: border-box;
+}
+
+.basketItemTopRow h2 {
+    margin: 0;
+    color: black;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.itemPrice {
+    color: black;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.basketItemCard hr {
+    margin: 0 28px 12px 28px;
+    border: none;
+    border-top: 2px solid #edb3e0;
+}
+
+.basketItemBottomRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 0 28px;
+    box-sizing: border-box;
+}
+
+.basketImageBox {
+    width: 120px;
+    min-width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.basketImageBox img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.removeButton {
+    min-width: 240px;
+    height: 54px;
+    background: #df92d4;
+    border: 2px solid #c96eb8;
+    border-radius: 12px;
+    color: black;
+    font-size: 24px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(91, 39, 93, 0.16);
+}
+
+.quantityControl {
+    display: flex;
+    align-items: center;
+    border: 2px solid #c96eb8;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    height: 52px;
+}
+
+.quantityButton {
+    width: 42px;
+    height: 52px;
+    border: none;
+    background: #df92d4;
+    color: black;
+    font-size: 28px;
+    font-weight: 800;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.quantityInput {
+    width: 128px;
+    height: 52px;
+    border: none;
+    border-left: 2px solid #c96eb8;
+    border-right: 2px solid #c96eb8;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.summaryBox {
+    width: 92%;
+    max-width: 1120px;
+    background: #e39ad8;
+    border-radius: 22px;
+    border: 2px solid black;
+    padding: 16px 24px 18px 24px;
+    box-sizing: border-box;
+}
+
+.summaryTopRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 6px 8px 6px;
+    gap: 20px;
+}
+
+.totalText {
+    color: black;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.pickupWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pickupWrapper label {
+    color: black;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.pickupWrapper select {
+    height: 38px;
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 0 12px;
+    font-size: 18px;
+    background: white;
+    font-family: "Inter", sans-serif;
+}
+
+.summaryBox hr {
+    margin: 0 0 10px 0;
+    border: none;
+    border-top: 2px solid #edb3e0;
+}
+
+.confirmButtonWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmButton {
+    min-width: 340px;
+    height: 50px;
+    background: #58d877;
+    border: 2px solid #48bf65;
+    border-radius: 12px;
+    color: black;
+    font-size: 24px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(91, 39, 93, 0.16);
+}
+
+.removeButton:hover,
+.quantityButton:hover,
+.confirmButton:hover {
+    filter: brightness(0.98);
+}
+
+@media (max-width: 950px) {
+    .headerbox h1 {
+        font-size: 46px;
+    }
+
+    .basketItemTopRow h2,
+    .itemPrice {
+        font-size: 22px;
+    }
+
+    .removeButton {
+        min-width: 180px;
+        font-size: 20px;
+    }
+
+    .quantityInput {
+        width: 90px;
+    }
+}
+
+@media (max-width: 760px) {
+    .headerbox {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .headerbox h1 {
+        font-size: 38px;
+    }
+
+    .basketItemTopRow,
+    .basketItemBottomRow,
+    .summaryTopRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .basketItemBottomRow {
+        align-items: center;
+    }
+
+    .pickupWrapper {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .confirmButton {
+        min-width: 220px;
+        width: 100%;
+    }
+}

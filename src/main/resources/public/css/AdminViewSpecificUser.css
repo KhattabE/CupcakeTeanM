@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-image: url("../images/cupcake_background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+
+.pagewrapper {
+    width: 100%;
+    padding-top: 20px;
+}
+
+
+.topbar {
+    width: 92%;
+    max-width: 1400px;
+    height: 80px;
+
+    margin: 0 auto 40px auto;
+
+    background: #eab6e3;
+    border: 2px solid black;
+    border-radius: 22px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 20px;
+}
+
+
+#adminBox {
+    width: 120px;
+    height: 45px;
+
+    background: #df92d4;
+    border: 1.5px solid #7b4b74;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#adminBox h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+
+#companyName {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+#companyName h2 {
+    margin: 0;
+    font-size: 60px;
+}
+
+
+#adminProfile h4 {
+    margin: 0;
+}
+
+
+.mainobjectbox {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    background: #f4f2f4;
+    border: 2px solid black;
+    border-radius: 20px;
+
+    padding: 20px 30px;
+}
+
+
+#adminTitle {
+    text-align: center;
+    font-size: 32px;
+    margin: 0;
+}
+
+.boxline {
+    border: none;
+    border-top: 2px solid #efb8e5;
+    margin: 15px 0;
+}
+
+
+.ordersScrollArea {
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+
+.ordersScrollArea::-webkit-scrollbar {
+    width: 10px;
+}
+.ordersScrollArea::-webkit-scrollbar-thumb {
+    background: #c76ab8;
+    border-radius: 10px;
+}
+
+
+.orderCard {
+    background: #df92d4;
+    border: 1.5px solid #7b4b74;
+    border-radius: 12px;
+
+    padding: 14px 18px;
+    margin-bottom: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.bigCard {
+    background: #f8f8f8;
+    border: 2px solid #dba0d2;
+}
+
+.orderInfo h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.orderInfo p {
+    margin: 3px 0 0 0;
+    font-size: 14px;
+}
+
+
+.rightInfo {
+    display: flex;
+    gap: 10px;
+}
+
+.infoBox {
+    background: white;
+    border: 2px solid #e3b0d9;
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.deleteButton {
+    background: #f4f2f4;
+    border: 1.5px solid #7b4b74;
+    border-radius: 10px;
+
+    padding: 8px 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
