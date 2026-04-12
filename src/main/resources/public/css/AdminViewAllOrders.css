@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+
+    background:
+            radial-gradient(circle at 15% 20%, #8d2f79 0 18%, transparent 18%),
+            radial-gradient(circle at 45% 10%, #b456b0 0 16%, transparent 16%),
+            radial-gradient(circle at 72% 18%, #5d0056 0 22%, transparent 22%),
+            radial-gradient(circle at 88% 12%, #b53c99 0 18%, transparent 18%),
+            radial-gradient(circle at 22% 78%, #6a0b68 0 22%, transparent 22%),
+            radial-gradient(circle at 58% 82%, #b13fa5 0 24%, transparent 24%),
+            radial-gradient(circle at 82% 76%, #4f0a45 0 20%, transparent 20%),
+            linear-gradient(135deg, #7e2c74, #5d0056, #8d2f79);
+
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.page-wrapper {
+    width: 100%;
+    max-width: 1300px;
+}
+
+.topbar {
+    background: #efb0e3;
+    border: 3px solid #111;
+    border-radius: 22px;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 70px;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+}
+
+.admin-badge {
+    background: #d98bcf;
+    border: 2px solid #111;
+    border-radius: 14px;
+    padding: 12px 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo-title {
+    font-size: 55px;
+    font-weight: 400;
+}
+
+.cupcake-icon {
+    font-size: 40px;
+}
+
+.profile {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.admin-panel {
+    background: #f3f3f3;
+    border: 3px solid #111;
+    border-radius: 28px;
+    padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.admin-panel h2 {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.blue-line {
+    width: 80%;
+    height: 4px;
+    background: #3498db;
+    margin: 0 auto 20px;
+}
+
+.orders-list {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.orders-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.orders-list::-webkit-scrollbar-thumb {
+    background: #c970b7;
+    border-radius: 10px;
+}
+
+.order-card {
+    background: #e39ad7;
+    border: 2px solid #333;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.order-info h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.order-info p {
+    font-weight: bold;
+}
+
+.order-status {
+    font-size: 26px;
+    font-weight: bold;
+    min-width: 220px;
+    text-align: center;
+}
+
+.in-process {
+    color: black;
+}
+
+.completed {
+    color: green;
+}
+
+.delete-btn {
+    background: #f1f1f1;
+    border: 2px solid #333;
+    border-radius: 14px;
+    padding: 12px 35px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    transform: scale(1.05);
+}

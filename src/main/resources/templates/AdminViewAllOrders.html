@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin UI - Orders</title>
+  <link rel="stylesheet" href="../public/css/AdminViewAllOrders.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <header class="topbar">
+    <div class="admin-badge">Admin</div>
+
+    <h1 class="logo-title">
+      The Cupcake Co. <span class="cupcake-icon">🧁</span>
+    </h1>
+
+    <div class="profile">
+      Profile (
+      <span th:text="${currentUser.email}">admin@gmail.com</span>
+      )
+    </div>
+  </header>
+
+  <main class="admin-panel">
+    <h2>Admin UI</h2>
+    <div class="blue-line"></div>
+
+    <section class="orders-list">
+
+      <!-- LOOP -->
+      <div class="order-card" th:each="order : ${orders}">
+
+        <div class="order-info">
+          <h3 th:text="'Order #' + ${order.orderId}">Order #1</h3>
+          <p th:text="${order.email}">user@gmail.com</p>
+        </div>
+
+        <!-- STATUS -->
+        <div class="order-status"
+             th:classappend="${order.status == 'COMPLETED'} ? ' completed' : ' in-process'">
+
+                    <span th:text="${order.status == 'COMPLETED'} ? 'Completed 🟢' : 'In process 🟡'">
+                        In process 🟡
+                    </span>
+
+        </div>
+
+        <!-- DELETE -->
+        <form th:action="@{/admin/delete-order}" method="post">
+          <input type="hidden" name="orderId" th:value="${order.orderId}">
+          <button type="submit" class="delete-btn">Delete</button>
+        </form>
+
+      </div>
+
+    </section>
+  </main>
+
+</div>
+
+</body>
+</html>
