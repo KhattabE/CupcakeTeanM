@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Sign In</title>
     <link rel="stylesheet" href="../public/css/signinStyle.css">
+    <link rel="icon" type="image/x-icon" href="../public/images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -26,6 +27,7 @@
 
 
 <div class="signinBox">
+
     <div id="cupcakelogo">
         <img src="../public/images/cupcakelogo.png">
         <hr id="boxline">
@@ -34,12 +36,12 @@
     <form>
 
         <div id="signinMail">
-            <input type="text" placeholder="Mail" id="mail">
+            <input type="email" placeholder="Mail" id="mail" required>
         </div>
 
 
         <div id="signinPassword">
-            <input type="password" placeholder="Password" id="password">
+            <input type="password" placeholder="Password" id="password" required>
         </div>
 
         <a href="https://www.w3schools.com" id="forgotPassword">Forgot password</a>
