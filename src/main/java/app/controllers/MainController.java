@@ -29,4 +29,8 @@ public class MainController {
     public static void adminProfile(Context ctx) {
         ctx.render("AdminUIProfile.html");
     }
+
+    public static void menu(Context ctx) {
+        ctx.render("menu.html");
+    }
 }

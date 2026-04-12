@@ -32,12 +32,14 @@ public class Main {
             config.routes.get("/signup", UserController::signUp);
             config.routes.post("/signup", UserController::handleSignUp);
             config.routes.get("/signin", UserController::signIn);
+            config.routes.post("/signin", UserController::handleSignIn);
 
             config.routes.get("/view-all-users", MainController::viewAllUsers);
             config.routes.get("/build-cupcake", MainController::buildYourCupcake);
             config.routes.get("/basket", MainController::yourBasket);
             config.routes.get("/orders", MainController::yourOrders);
             config.routes.get("/admin-profile", MainController::adminProfile);
+            config.routes.get("/menu", MainController::menu);
         }).start(7070);
     }
 }

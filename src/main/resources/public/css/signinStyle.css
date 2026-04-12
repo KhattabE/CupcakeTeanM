@@ -74,7 +74,7 @@ body{
     justify-content: center;
 }
 
-#signinButton input{
+#signinButton button{
     outline: 2px solid black;
     border-radius: 25px;
     width: 400px;

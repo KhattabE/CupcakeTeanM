@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Sign In</title>
     <link rel="stylesheet" href="/css/signinStyle.css">
-    <link rel="icon" type="image/x-icon" href="../public/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -20,38 +20,37 @@
         <h2>Design your own cupcake 🧁</h2>
     </div>
     <div id="signinfo">
-        <a href="#signup" class="infoTextRight">Sign up</a>
-        <a href="#signin" class="infoTextRight">Sign in</a>
+        <a href="/signup" class="infoTextRight">Sign up</a>
+        <a href="/signin" class="infoTextRight">Sign in</a>
     </div>
 </div>
-
 
 <div class="signinBox">
 
     <div id="cupcakelogo">
-        <img src="/images/cupcakelogo.png">
+        <img src="/images/cupcakelogo.png" alt="logo">
         <hr id="boxline">
     </div>
 
-    <form>
+
+    <form method="post" action="/signin">
 
         <div id="signinMail">
-            <input type="email" placeholder="Mail" id="mail" required>
+            <input type="email" name="email" placeholder="Mail" required>
         </div>
-
 
         <div id="signinPassword">
-            <input type="password" placeholder="Password" id="password" required>
+            <input type="password" name="password" placeholder="Password" required>
         </div>
 
-        <a href="https://www.w3schools.com" id="forgotPassword">Forgot password</a>
-
+        <a href="#" id="forgotPassword">Forgot password</a>
 
         <div id="signinButton">
-            <input type="submit" value="Login">
+            <button type="submit">Login</button>
         </div>
 
     </form>
+
 </div>
 
 </body>

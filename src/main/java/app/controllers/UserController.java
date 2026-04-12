@@ -40,6 +40,22 @@ public class UserController {
     public static void signIn(Context ctx) {
         ctx.render("signin.html");
     }
+
+    public static void handleSignIn(Context ctx) {
+        String email = ctx.formParam("email");
+        String password = ctx.formParam("password");
+
+        UserMapper userMapper = new UserMapper(ConnectionPool.getInstance());
+        User user = userMapper.validateLogin(email, password);
+
+        if (user == null) {
+            ctx.result("Wrong email or password");
+            return;
+        }
+
+        ctx.sessionAttribute("currentUser", user);
+        ctx.redirect("/menu");
+    }
 }
 
 
