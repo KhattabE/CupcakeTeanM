@@ -5,6 +5,7 @@ import io.javalin.http.Context;
 
 public class MainController {
 
+    //a
     public static void index(Context ctx) {
         ctx.render("index.html");
     }
