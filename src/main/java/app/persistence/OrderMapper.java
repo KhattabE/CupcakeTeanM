@@ -172,4 +172,34 @@ public class OrderMapper {
             System.out.println("An error has has happend" + sql );
         }
     }
+
+    public int createOrder(int userId, String status, java.time.LocalDate createdAt, double total, String pickupDate) {
+        String sql = """
+        INSERT INTO orders (user_id, status, created_at, total)
+        VALUES (?, ?, ?, ?)
+        RETURNING order_id
+        """;
+
+        try (
+                Connection connection = connectionPool.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql)
+        ) {
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setString(2, status);
+            preparedStatement.setDate(3, java.sql.Date.valueOf(createdAt));
+            preparedStatement.setDouble(4, total);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt("order_id");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error in createOrder: " + sql);
+        }
+
+        return -1;
+    }
+
 }

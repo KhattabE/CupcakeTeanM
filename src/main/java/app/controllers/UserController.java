@@ -30,7 +30,7 @@ public class UserController {
             return;
         }
 
-        User user = new User(0, firstName, lastName, email, password, 0.0, "user");
+        User user = new User(0, firstName, lastName, email, password, 500.00, "user");
         userMapper.createUser(user);
 
         ctx.redirect("/signin");

@@ -142,6 +142,27 @@ public class UserMapper {
         return null;
     }
 
+    public void updateBalance(int userId, double newBalance) {
+        String sql = """
+        UPDATE users
+        SET balance = ?
+        WHERE user_id = ?
+        """;
+
+        try (
+                Connection connection = connectionPool.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql)
+        ) {
+            preparedStatement.setDouble(1, newBalance);
+            preparedStatement.setInt(2, userId);
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Error in updateBalance: " + sql);
+        }
+    }
+
 
 
 }
