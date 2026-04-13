@@ -39,148 +39,150 @@
             Build your cupcake 🧁
         </div>
 
-        <!-- TOPPING -->
-        <div class="sectionbox">
-            <div class="sectiontitle">Choose topping</div>
+        <form method="post" action="/basket/add">
 
-            <div class="sectioncontent">
+            <div class="sectionbox">
+                <div class="sectiontitle">Choose topping</div>
 
-                <label class="card">
-                    <input type="radio" name="topping" value="Chocolate">
-                    <div class="cardHeader">
-                        <span class="cardName">Chocolate</span>
-                        <span class="customRadio"></span>
-                    </div>
-                    <img src="/images/CocoTop.png" alt="Chocolate topping">
-                    <span class="price">15kr</span>
-                </label>
+                <div class="sectioncontent">
 
-                <label class="card">
-                    <input type="radio" name="topping" value="Strawberry">
-                    <div class="cardHeader">
-                        <span class="cardName">Strawberry</span>
-                        <span class="customRadio"></span>
-                    </div>
-                    <img src="/images/StrawBerryTop.png" alt="Strawberry topping">
-                    <span class="price">55kr</span>
-                </label>
+                    <label class="card">
+                        <input type="radio" name="topping" value="Chocolate" data-price="15">
+                        <div class="cardHeader">
+                            <span class="cardName">Chocolate</span>
+                            <span class="customRadio"></span>
+                        </div>
+                        <img src="/images/CocoTop.png" alt="Chocolate topping">
+                        <span class="price">15kr</span>
+                    </label>
 
-                <label class="card">
-                    <input type="radio" name="topping" value="Vanilla" checked>
-                    <div class="cardHeader">
-                        <span class="cardName">Vanilla</span>
-                        <span class="customRadio"></span>
-                    </div>
-                    <img src="/images/VanilaTop.png" alt="Vanilla topping">
-                    <span class="price">10kr</span>
-                </label>
+                    <label class="card">
+                        <input type="radio" name="topping" value="Strawberry" data-price="55">
+                        <div class="cardHeader">
+                            <span class="cardName">Strawberry</span>
+                            <span class="customRadio"></span>
+                        </div>
+                        <img src="/images/StrawBerryTop.png" alt="Strawberry topping">
+                        <span class="price">55kr</span>
+                    </label>
 
-                <label class="card">
-                    <input type="radio" name="topping" value="Pistachio">
-                    <div class="cardHeader">
-                        <span class="cardName">Pistachio</span>
-                        <span class="customRadio"></span>
-                    </div>
-                    <img src="/images/PestTop.png" alt="Pistachio topping">
-                    <span class="price">17kr</span>
-                </label>
+                    <label class="card">
+                        <input type="radio" name="topping" value="Vanilla" data-price="10" checked>
+                        <div class="cardHeader">
+                            <span class="cardName">Vanilla</span>
+                            <span class="customRadio"></span>
+                        </div>
+                        <img src="/images/VanilaTop.png" alt="Vanilla topping">
+                        <span class="price">10kr</span>
+                    </label>
 
-                <label class="card">
-                    <input type="radio" name="topping" value="Almond">
-                    <div class="cardHeader">
-                        <span class="cardName">Almond</span>
-                        <span class="customRadio"></span>
-                    </div>
-                    <img src="/images/NutsTop.png" alt="Almond topping">
-                    <span class="price">40kr</span>
-                </label>
+                    <label class="card">
+                        <input type="radio" name="topping" value="Pistachio" data-price="17">
+                        <div class="cardHeader">
+                            <span class="cardName">Pistachio</span>
+                            <span class="customRadio"></span>
+                        </div>
+                        <img src="/images/PestTop.png" alt="Pistachio topping">
+                        <span class="price">17kr</span>
+                    </label>
 
-            </div>
-        </div>
+                    <label class="card">
+                        <input type="radio" name="topping" value="Almond" data-price="40">
+                        <div class="cardHeader">
+                            <span class="cardName">Almond</span>
+                            <span class="customRadio"></span>
+                        </div>
+                        <img src="/images/NutsTop.png" alt="Almond topping">
+                        <span class="price">40kr</span>
+                    </label>
 
-        <!-- BOTTOM -->
-        <div class="sectionbox">
-            <div class="sectiontitle">Choose bottom</div>
-
-            <div class="sectioncontent">
-
-                <label class="card">
-                    <input type="radio" name="bottom" value="Chocolate" checked>
-                    <div class="cardHeader">
-                        <span class="cardName">Chocolate</span>
-                        <span class="customRadio"></span>
-                    </div>
-                    <img src="/images/CocoBottom.png" alt="Chocolate bottom">
-                    <span class="price">10kr</span>
-                </label>
-
-                <label class="card">
-                    <input type="radio" name="bottom" value="Strawberry">
-                    <div class="cardHeader">
-                        <span class="cardName">Strawberry</span>
-                        <span class="customRadio"></span>
-                    </div>
-                    <img src="/images/BottomOne.png" alt="Strawberry bottom">
-                    <span class="price">45kr</span>
-                </label>
-
-                <label class="card">
-                    <input type="radio" name="bottom" value="Vanilla">
-                    <div class="cardHeader">
-                        <span class="cardName">Vanilla</span>
-                        <span class="customRadio"></span>
-                    </div>
-                    <img src="/images/BottomTwo.png" alt="Vanilla bottom">
-                    <span class="price">20kr</span>
-                </label>
-
-                <label class="card">
-                    <input type="radio" name="bottom" value="Pistachio">
-                    <div class="cardHeader">
-                        <span class="cardName">Pistachio</span>
-                        <span class="customRadio"></span>
-                    </div>
-                    <img src="/images/BottomThree.png" alt="Pistachio bottom">
-                    <span class="price">10kr</span>
-                </label>
-
-                <label class="card">
-                    <input type="radio" name="bottom" value="Almond">
-                    <div class="cardHeader">
-                        <span class="cardName">Almond</span>
-                        <span class="customRadio"></span>
-                    </div>
-                    <img src="/images/BottomFour.png" alt="Almond bottom">
-                    <span class="price">50kr</span>
-                </label>
-
-            </div>
-        </div>
-
-        <!-- ACTION -->
-        <div class="bottomBar">
-
-            <div class="quantityBox">
-                <span class="quantityLabel">Quantity:</span>
-
-                <div class="quantityControl">
-                    <button type="button" class="quantityButton">-</button>
-                    <input type="number" value="3" min="1" class="quantityInput">
-                    <button type="button" class="quantityButton">+</button>
                 </div>
             </div>
 
-            <div class="priceDisplay">
-                <span>Price: 10kr</span>
+            <div class="sectionbox">
+                <div class="sectiontitle">Choose bottom</div>
+
+                <div class="sectioncontent">
+
+                    <label class="card">
+                        <input type="radio" name="bottom" value="Chocolate" data-price="10" checked>
+                        <div class="cardHeader">
+                            <span class="cardName">Chocolate</span>
+                            <span class="customRadio"></span>
+                        </div>
+                        <img src="/images/CocoBottom.png" alt="Chocolate bottom">
+                        <span class="price">10kr</span>
+                    </label>
+
+                    <label class="card">
+                        <input type="radio" name="bottom" value="Strawberry" data-price="45">
+                        <div class="cardHeader">
+                            <span class="cardName">Strawberry</span>
+                            <span class="customRadio"></span>
+                        </div>
+                        <img src="/images/BottomOne.png" alt="Strawberry bottom">
+                        <span class="price">45kr</span>
+                    </label>
+
+                    <label class="card">
+                        <input type="radio" name="bottom" value="Vanilla" data-price="20">
+                        <div class="cardHeader">
+                            <span class="cardName">Vanilla</span>
+                            <span class="customRadio"></span>
+                        </div>
+                        <img src="/images/BottomTwo.png" alt="Vanilla bottom">
+                        <span class="price">20kr</span>
+                    </label>
+
+                    <label class="card">
+                        <input type="radio" name="bottom" value="Pistachio" data-price="10">
+                        <div class="cardHeader">
+                            <span class="cardName">Pistachio</span>
+                            <span class="customRadio"></span>
+                        </div>
+                        <img src="/images/BottomThree.png" alt="Pistachio bottom">
+                        <span class="price">10kr</span>
+                    </label>
+
+                    <label class="card">
+                        <input type="radio" name="bottom" value="Almond" data-price="50">
+                        <div class="cardHeader">
+                            <span class="cardName">Almond</span>
+                            <span class="customRadio"></span>
+                        </div>
+                        <img src="/images/BottomFour.png" alt="Almond bottom">
+                        <span class="price">50kr</span>
+                    </label>
+
+                </div>
             </div>
 
-            <button type="button" class="basketButton">Add to basket</button>
+            <div class="bottomBar">
 
-        </div>
+                <div class="quantityBox">
+                    <span class="quantityLabel">Quantity:</span>
+
+                    <div class="quantityControl">
+                        <button type="button" class="quantityButton" id="minusButton">-</button>
+                        <input type="number" name="quantity" value="1" min="1" class="quantityInput" id="quantityInput">
+                        <button type="button" class="quantityButton" id="plusButton">+</button>
+                    </div>
+                </div>
+
+                <div class="priceDisplay">
+                    <span id="totalPrice">Price: 20 kr</span>
+                </div>
+
+                <button type="submit" class="basketButton">Add to basket</button>
+
+            </div>
+
+        </form>
 
     </div>
 
 </div>
 
+<script src="/js/buildYourOwnCupcake.js"></script>
 </body>
 </html>

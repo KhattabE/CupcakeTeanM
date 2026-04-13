@@ -1,7 +1,11 @@
 package app.controllers;
 
 
+import app.entities.BasketItem;
 import io.javalin.http.Context;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainController {
 
@@ -18,9 +22,6 @@ public class MainController {
         ctx.render("buildYourCupcake.html");
     }
 
-    public static void yourBasket(Context ctx) {
-        ctx.render("YourBasket.html");
-    }
 
     public static void yourOrders(Context ctx) {
         ctx.render("YourOrders.html");
@@ -33,4 +34,8 @@ public class MainController {
     public static void menu(Context ctx) {
         ctx.render("menu.html");
     }
+
+
+
+
 }

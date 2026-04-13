@@ -20,16 +20,16 @@
         <div id="saldoBox">
             <span id="saldoText">Saldo:</span>
             <div id="saldoAmount">
-                <span th:text="${currentUser.balance}">198.99 kr.</span>
+                <span th:text="${currentUser.balance} + ' kr.'">199.99 kr.</span>
             </div>
         </div>
 
         <h1>The Cupcake Co. 🧁</h1>
 
         <div id="profileBox">
-            <a href="#">Profile (mail@gmail.com)</a>
+            <a href="#">Profile</a>
             <span>/</span>
-            <a href="#">Basket</a>
+            <a href="/basket">Basket</a>
         </div>
     </div>
 
@@ -41,10 +41,12 @@
 
         <div class="basketItemsBox">
 
-            <div class="basketItemCard">
+            <div class="basketItemCard" th:each="item, stat : ${basket}">
                 <div class="basketItemTopRow">
-                    <h2>3x Strawberry + chocolate topping</h2>
-                    <span class="itemPrice">45 kr.</span>
+                    <h2 th:text="${item.quantity} + 'x ' + item.bottom + ' + ' + item.topping + ' topping'">
+                        3x Strawberry + chocolate topping
+                    </h2>
+                    <span class="itemPrice" th:text="${item.quantity * item.unitPrice} + ' kr.'">45 kr.</span>
                 </div>
 
                 <hr>
@@ -54,35 +56,25 @@
                         <img src="/images/ThreeCupcake.png" alt="Cupcakes">
                     </div>
 
-                    <button type="button" class="removeButton">Remove</button>
+                    <form method="post" action="/basket/remove">
+                        <input type="hidden" name="index" th:value="${stat.index}">
+                        <button type="submit" class="removeButton">Remove</button>
+                    </form>
 
                     <div class="quantityControl">
-                        <button type="button" class="quantityButton">-</button>
-                        <input type="number" value="3" min="1" class="quantityInput">
-                        <button type="button" class="quantityButton">+</button>
-                    </div>
-                </div>
-            </div>
 
-            <div class="basketItemCard">
-                <div class="basketItemTopRow">
-                    <h2>3x Strawberry + chocolate topping</h2>
-                    <span class="itemPrice">145 kr.</span>
-                </div>
+                        <form method="post" action="/basket/decrease">
+                            <input type="hidden" name="index" th:value="${stat.index}">
+                            <button type="submit" class="quantityButton">-</button>
+                        </form>
 
-                <hr>
+                        <input type="number" th:value="${item.quantity}" min="1" class="quantityInput" readonly>
 
-                <div class="basketItemBottomRow">
-                    <div class="basketImageBox">
-                        <img src="../public/images/ThreeCupcake.png" alt="Cupcakes">
-                    </div>
+                        <form method="post" action="/basket/increase">
+                            <input type="hidden" name="index" th:value="${stat.index}">
+                            <button type="submit" class="quantityButton">+</button>
+                        </form>
 
-                    <button type="button" class="removeButton">Remove</button>
-
-                    <div class="quantityControl">
-                        <button type="button" class="quantityButton">-</button>
-                        <input type="number" value="4" min="1" class="quantityInput">
-                        <button type="button" class="quantityButton">+</button>
                     </div>
                 </div>
             </div>
@@ -92,15 +84,16 @@
 
     <div class="summaryBox">
         <div class="summaryTopRow">
-            <div class="totalText">Total: 179,00 kr.</div>
+            <div class="totalText">
+                Total: <span th:text="${total} + ' kr.'">179,00 kr.</span>
+            </div>
 
             <div class="pickupWrapper">
                 <label for="pickupDate">Pickup date:</label>
-                <select id="pickupDate" name="pickupDate">
-                    <option selected>DropBox date</option>
-                    <option>10 april</option>
-                    <option>11 april</option>
-                    <option>12 april</option>
+                <select id="pickupDate" name="pickupDate" form="confirmForm">
+                    <option selected value="13 april">13 april</option>
+                    <option value="14 april">14 april</option>
+                    <option value="15 april">15 april</option>
                 </select>
             </div>
         </div>
@@ -108,7 +101,9 @@
         <hr>
 
         <div class="confirmButtonWrapper">
-            <button type="button" class="confirmButton">Confirm</button>
+            <form method="post" action="/basket/confirm" id="confirmForm">
+                <button type="submit" class="confirmButton">Confirm</button>
+            </form>
         </div>
     </div>
 

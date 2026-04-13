@@ -32,15 +32,23 @@
         <div class="mainobjectbox">
 
             <div id="buildYourCupcake">
-                <button type="buildCupcake">Build your cupcake</button>
+                <a th:href="@{/build-cupcake}">
+                    <button type="button">Build your cupcake</button>
+                </a>
             </div>
+
             <hr class="boxline">
             <div id="viewOrders">
+                <a th:href="@{/orders}">
                 <button type="viewOrders">View Orders</button>
+                </a>
             </div>
+
             <hr class="boxline">
             <div id="viewBasket">
+                <a th:href="@{/basket}">
                 <button type="viewBasket">View Basket</button>
+                </a>
             </div>
             <hr class="boxline">
 
