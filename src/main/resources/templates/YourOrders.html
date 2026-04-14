@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Your Orders - The Cupcake Co.</title>
@@ -13,7 +13,7 @@
 
 <div class="topbar">
     <button onclick="goBack()" class="backBtn">← Back</button>
-    <a href="#">Order cupcakes here</a>
+    <a href="/build-cupcake">Order cupcakes here</a>
 </div>
 
 <div class="pagewrapper">
@@ -22,16 +22,21 @@
         <div id="saldoBox">
             <span id="saldoText">Saldo:</span>
             <div id="saldoAmount">
-                <span>199.99 kr.</span>
+                <span th:text="${currentUser != null ? #numbers.formatDecimal(currentUser.balance, 1, 2) + ' kr.' : '0.00 kr.'}">
+                    199.99 kr.
+                </span>
             </div>
         </div>
 
         <h1>The Cupcake Co. 🧁</h1>
 
         <div id="profileBox">
-            <a href="#">Profile (mail@gmail.com)</a>
+            <a href="#"
+               th:text="${currentUser != null ? 'Profile (' + currentUser.email + ')' : 'Profile'}">
+                Profile (mail@gmail.com)
+            </a>
             <span>/</span>
-            <a href="#">Basket</a>
+            <a href="/basket">Basket</a>
         </div>
     </div>
 
@@ -43,16 +48,13 @@
 
         <div class="ordersGrid">
 
-
             <div class="ordersColumn">
                 <div class="columnTitle">Past orders</div>
 
                 <div class="ordersList">
-
-                    <div class="orderCard">
+                    <div class="orderCard" th:if="${#lists.isEmpty(pastOrders)}">
                         <div class="orderHeader">
-                            <h2>Order #43</h2>
-                            <span>Pickup: 10 april</span>
+                            <h2>No past orders</h2>
                         </div>
 
                         <div class="orderContent">
@@ -61,7 +63,7 @@
                             </div>
 
                             <div class="orderText">
-                                <p>5x Strawberry + banana topping</p>
+                                <p>You have no completed orders yet.</p>
                             </div>
                         </div>
 
@@ -73,10 +75,10 @@
                         </div>
                     </div>
 
-                    <div class="orderCard">
+                    <div class="orderCard" th:each="order : ${pastOrders}">
                         <div class="orderHeader">
-                            <h2>Order #19</h2>
-                            <span>Pickup: 10 april</span>
+                            <h2 th:text="|Order #${order.orderId}|">Order #43</h2>
+                            <span th:text="|Pickup: ${order.pickup}|">Pickup: 2026-04-10</span>
                         </div>
 
                         <div class="orderContent">
@@ -85,33 +87,29 @@
                             </div>
 
                             <div class="orderText">
-                                <p>3x Strawberry + chocolate topping</p>
-                                <p>3x Strawberry + chocolate topping</p>
-                                <p>3x Strawberry + chocolate topping</p>
+                                <p th:each="line : ${order.lines}" th:text="${line}">
+                                    5x Strawberry + banana topping
+                                </p>
                             </div>
                         </div>
 
                         <hr>
 
                         <div class="statusButton completedStatus">
-                            <span>Completed</span>
+                            <span th:text="${order.status}">Completed</span>
                             <span class="statusDot greenDot"></span>
                         </div>
                     </div>
-
                 </div>
             </div>
-
 
             <div class="ordersColumn">
                 <div class="columnTitle">Current orders</div>
 
                 <div class="ordersList">
-
-                    <div class="orderCard">
+                    <div class="orderCard" th:if="${#lists.isEmpty(currentOrders)}">
                         <div class="orderHeader">
-                            <h2>Order #2</h2>
-                            <span>Pickup: 10 april</span>
+                            <h2>No current orders</h2>
                         </div>
 
                         <div class="orderContent">
@@ -120,9 +118,7 @@
                             </div>
 
                             <div class="orderText">
-                                <p>3x Strawberry + chocolate topping</p>
-                                <p>5x Chocolate + chocolate topping</p>
-                                <p>2x Chocolate + lemon topping</p>
+                                <p>You have no active orders right now.</p>
                             </div>
                         </div>
 
@@ -134,10 +130,10 @@
                         </div>
                     </div>
 
-                    <div class="orderCard">
+                    <div class="orderCard" th:each="order : ${currentOrders}">
                         <div class="orderHeader">
-                            <h2>Order #3</h2>
-                            <span>Pickup: 10 april</span>
+                            <h2 th:text="|Order #${order.orderId}|">Order #2</h2>
+                            <span th:text="|Pickup: ${order.pickup}|">Pickup: 2026-04-10</span>
                         </div>
 
                         <div class="orderContent">
@@ -146,19 +142,19 @@
                             </div>
 
                             <div class="orderText">
-                                <p>3x Strawberry + chocolate topping</p>
-                                <p>2x Strawberry + chocolate topping</p>
+                                <p th:each="line : ${order.lines}" th:text="${line}">
+                                    3x Strawberry + chocolate topping
+                                </p>
                             </div>
                         </div>
 
                         <hr>
 
                         <div class="statusButton progressStatus">
-                            <span>In process</span>
+                            <span th:text="${order.status}">In process</span>
                             <span class="statusDot yellowDot"></span>
                         </div>
                     </div>
-
                 </div>
             </div>
 

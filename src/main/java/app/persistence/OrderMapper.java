@@ -19,8 +19,8 @@ public class OrderMapper {
     // creates a new order (cart)
     public void createOrder(Orders order) {
         String sql = """
-            INSERT INTO orders (user_id, status, created_at, total) VALUES (?,?,?,?)
-            """;
+        INSERT INTO orders (user_id, status, created_at, total, pickup) VALUES (?,?,?,?,?)
+        """;
 
         try (
                 Connection connection = connectionPool.getConnection();
@@ -30,19 +30,50 @@ public class OrderMapper {
             preparedStatement.setString(2, order.getStatus());
             preparedStatement.setDate(3, order.getCreatedAt());
             preparedStatement.setDouble(4, order.getTotal());
+            preparedStatement.setDate(5, order.getPickup());
 
             preparedStatement.executeUpdate();
 
         } catch (SQLException e){
-            System.out.println("An error has has happend" + sql );
+            System.out.println("An error has happened " + sql);
         }
+    }
+
+    public int createOrder(int userId, String status, java.time.LocalDate createdAt, double total, String pickupDate) {
+        String sql = """
+        INSERT INTO orders (user_id, status, created_at, total, pickup)
+        VALUES (?, ?, ?, ?, ?)
+        RETURNING order_id
+        """;
+
+        try (
+                Connection connection = connectionPool.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql)
+        ) {
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setString(2, status);
+            preparedStatement.setDate(3, java.sql.Date.valueOf(createdAt));
+            preparedStatement.setDouble(4, total);
+            preparedStatement.setDate(5, java.sql.Date.valueOf(pickupDate));
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt("order_id");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error in createOrder: " + sql);
+        }
+
+        return -1;
     }
 
     // gets an order by id
     public Orders getOrderById(int orderId) {
         String sql = """
-            SELECT * FROM orders WHERE order_id = ?
-            """;
+        SELECT * FROM orders WHERE order_id = ?
+        """;
 
         try (
                 Connection connection = connectionPool.getConnection();
@@ -57,12 +88,13 @@ public class OrderMapper {
                 String status = rs.getString("status");
                 java.sql.Date createdAt = rs.getDate("created_at");
                 double total = rs.getDouble("total");
+                java.sql.Date pickup = rs.getDate("pickup");
 
-                return new Orders(orderId, userId, status, createdAt, total);
+                return new Orders(orderId, userId, status, createdAt, total, pickup);
             }
 
         } catch (SQLException e){
-            System.out.println("An error has has happend" + sql );
+            System.out.println("An error has happened " + sql);
         }
 
         return null;
@@ -71,8 +103,8 @@ public class OrderMapper {
     // gets all orders for one user
     public List<Orders> getOrdersByUserId(int userId) {
         String sql = """
-            SELECT * FROM orders WHERE user_id = ?
-            """;
+        SELECT * FROM orders WHERE user_id = ?
+        """;
 
         List<Orders> orders = new ArrayList<>();
 
@@ -89,13 +121,14 @@ public class OrderMapper {
                 String status = rs.getString("status");
                 java.sql.Date createdAt = rs.getDate("created_at");
                 double total = rs.getDouble("total");
+                java.sql.Date pickup = rs.getDate("pickup");
 
-                Orders order = new Orders(orderId, userId, status, createdAt, total);
+                Orders order = new Orders(orderId, userId, status, createdAt, total, pickup);
                 orders.add(order);
             }
 
         } catch (SQLException e){
-            System.out.println("An error has has happend" + sql );
+            System.out.println("An error has happened " + sql);
         }
 
         return orders;
@@ -104,8 +137,8 @@ public class OrderMapper {
     // gets all orders (admin)
     public List<Orders> getAllOrders() {
         String sql = """
-            SELECT * FROM orders
-            """;
+        SELECT * FROM orders
+        """;
 
         List<Orders> orders = new ArrayList<>();
 
@@ -121,13 +154,14 @@ public class OrderMapper {
                 String status = rs.getString("status");
                 java.sql.Date createdAt = rs.getDate("created_at");
                 double total = rs.getDouble("total");
+                java.sql.Date pickup = rs.getDate("pickup");
 
-                Orders order = new Orders(orderId, userId, status, createdAt, total);
+                Orders order = new Orders(orderId, userId, status, createdAt, total, pickup);
                 orders.add(order);
             }
 
         } catch (SQLException e){
-            System.out.println("An error has has happend" + sql );
+            System.out.println("An error has happened " + sql);
         }
 
         return orders;
@@ -171,35 +205,6 @@ public class OrderMapper {
         } catch (SQLException e){
             System.out.println("An error has has happend" + sql );
         }
-    }
-
-    public int createOrder(int userId, String status, java.time.LocalDate createdAt, double total, String pickupDate) {
-        String sql = """
-        INSERT INTO orders (user_id, status, created_at, total)
-        VALUES (?, ?, ?, ?)
-        RETURNING order_id
-        """;
-
-        try (
-                Connection connection = connectionPool.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(sql)
-        ) {
-            preparedStatement.setInt(1, userId);
-            preparedStatement.setString(2, status);
-            preparedStatement.setDate(3, java.sql.Date.valueOf(createdAt));
-            preparedStatement.setDouble(4, total);
-
-            ResultSet rs = preparedStatement.executeQuery();
-
-            if (rs.next()) {
-                return rs.getInt("order_id");
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Error in createOrder: " + sql);
-        }
-
-        return -1;
     }
 
 }

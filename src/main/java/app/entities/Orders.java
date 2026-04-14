@@ -8,13 +8,15 @@ public class Orders {
     private String status;
     private Date createdAt;
     private double total;
+    private Date pickup;
 
-    public Orders(int orderId, int userId, String status, Date createdAt, double total) {
+    public Orders(int orderId, int userId, String status, Date createdAt, double total, Date pickup) {
         this.orderId = orderId;
         this.userId = userId;
         this.status = status;
         this.createdAt = createdAt;
         this.total = total;
+        this.pickup = pickup;
     }
 
     public int getOrderId() {
@@ -55,5 +57,13 @@ public class Orders {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public Date getPickup() {
+        return pickup;
+    }
+
+    public void setPickup(Date pickup) {
+        this.pickup = pickup;
     }
 }
