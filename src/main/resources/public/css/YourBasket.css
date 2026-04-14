@@ -12,6 +12,19 @@ body {
     padding: 14px 48px 6px 48px;
 }
 
+.backBtn {
+    position: absolute;
+    left: 20px;
+    top: 50px;
+    background-color: #7a0f5c;
+    color: white;
+    border: 2px solid #cfcfcf;
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .topbar a {
     color: #a8a8a8;
     text-decoration: none;
@@ -123,8 +136,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 22px;
-    max-height: 420px;
+    height: 520px;
     overflow-y: auto;
+    overflow-x: hidden;
     padding-right: 8px;
     box-sizing: border-box;
 }
@@ -149,6 +163,8 @@ body {
     padding: 0 0 14px 0;
     box-sizing: border-box;
     overflow: hidden;
+    min-height: 170px;
+    flex-shrink: 0;
 }
 
 .basketItemTopRow {

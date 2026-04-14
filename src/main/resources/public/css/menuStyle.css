@@ -18,9 +18,16 @@ body{
     margin-right: 20px;
 }
 
+#frontsideheader{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 #frontsideheader h2{
     font-family: "Inter";
-    font-size: 30px;
+    font-size: 42px;
+    margin: 0;
 }
 
 #frontsidetitle{
@@ -29,7 +36,6 @@ body{
     align-items: center;
     font-size: 2em;
     font-family: "Inter";
-
 }
 
 #buildYourCupcake button{
@@ -49,7 +55,7 @@ body{
     width: 500px;
     height: 100px;
     border-radius: 25px;
-    margin-top: 20px;;
+    margin-top: 20px;
     background-color: #F69EE5;
     font-size: 2em;
     font-weight: bold;
@@ -92,7 +98,6 @@ body{
     background: #F69EE5;
 }
 
-
 .pinkoutertitlebox h2{
     font-family: inter;
     color:black;
@@ -127,35 +132,6 @@ body{
     background: white;
 }
 
-#signupButton{
-    display: flex;
-    justify-content: center;
-}
-
-#signupButton button{
-    outline: 2px solid black;
-    border-radius: 25px;
-    width: 400px;
-    margin-top: 40px;
-    background-color: #67E687;
-    font-size: 2em;
-    font-weight: bold;
-    font-family: "Inter";
-}
-
-
-
-#forgotPassword{
-    text-decoration: none;
-    display: block;
-    color:black;
-    margin-top: 10px;
-    font-family: Inter;
-    font-weight: bold;
-    font-size: 30px;
-}
-
-
 .boxline{
     display: block;
     height: 2px;
@@ -171,29 +147,33 @@ body{
     color: black;
 }
 
-#frontsideheader{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-}
-
 .topbar{
     outline: 3px solid black;
+    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin: auto;
     margin-top: 30px;
     border-radius: 10px;
     margin-bottom: 200px;
-
     font-family: "Inter";
-    font-optical-sizing: auto;
-    font-style: normal;
     color:black;
-
     width:70%;
-    height:10%;
+    height:90px;
     background:white;
+    padding: 0 30px;
+}
+
+.backBtn {
+    position: absolute;
+    left: 20px;
+    top: 50px;
+    background-color: #7a0f5c;
+    color: white;
+    border: 2px solid #cfcfcf;
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
