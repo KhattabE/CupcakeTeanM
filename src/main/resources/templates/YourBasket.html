@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Your Basket - The Cupcake Co.</title>
@@ -11,7 +11,7 @@
 <body>
 
 <div class="topbar">
-    <a href="#">Order cupcakes here</a>
+    <a href="/build-cupcake">Order cupcakes here</a>
 </div>
 
 <div class="pagewrapper">
@@ -20,14 +20,19 @@
         <div id="saldoBox">
             <span id="saldoText">Saldo:</span>
             <div id="saldoAmount">
-                <span th:text="${currentUser.balance} + ' kr.'">199.99 kr.</span>
+                <span th:text="${currentUser != null ? #numbers.formatDecimal(currentUser.balance, 1, 2) + ' kr.' : '0.00 kr.'}">
+                    198.99 kr.
+                </span>
             </div>
         </div>
 
         <h1>The Cupcake Co. 🧁</h1>
 
         <div id="profileBox">
-            <a href="#">Profile</a>
+            <a href="#"
+               th:text="${currentUser != null ? 'Profile (' + currentUser.email + ')' : 'Profile'}">
+                Profile (mail@gmail.com)
+            </a>
             <span>/</span>
             <a href="/basket">Basket</a>
         </div>
@@ -39,14 +44,15 @@
             Your basket 🧁
         </div>
 
-        <div class="basketItemsBox">
+        <div class="basketItemsBox" th:if="${basket != null and !#lists.isEmpty(basket)}">
 
             <div class="basketItemCard" th:each="item, stat : ${basket}">
                 <div class="basketItemTopRow">
-                    <h2 th:text="${item.quantity} + 'x ' + item.bottom + ' + ' + item.topping + ' topping'">
-                        3x Strawberry + chocolate topping
-                    </h2>
-                    <span class="itemPrice" th:text="${item.quantity * item.unitPrice} + ' kr.'">45 kr.</span>
+                    <h2 th:text="|${item.quantity}x ${item.bottom} + ${item.topping} topping|"></h2>
+                    <span class="itemPrice"
+                          th:text="${#numbers.formatDecimal(item.quantity * item.unitPrice, 1, 2) + ' kr.'}">
+                        45.00 kr.
+                    </span>
                 </div>
 
                 <hr>
@@ -80,21 +86,38 @@
             </div>
 
         </div>
+
+        <div class="basketItemsBox" th:if="${basket == null or #lists.isEmpty(basket)}">
+            <div class="basketItemCard">
+                <div class="basketItemTopRow">
+                    <h2>Your basket is empty</h2>
+                    <span class="itemPrice">0.00 kr.</span>
+                </div>
+
+                <hr>
+
+                <div class="basketItemBottomRow">
+                    <div class="basketImageBox">
+                        <img src="/images/ThreeCupcake.png" alt="Cupcakes">
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="summaryBox">
         <div class="summaryTopRow">
             <div class="totalText">
-                Total: <span th:text="${total} + ' kr.'">179,00 kr.</span>
+                Total:
+                <span th:text="${#numbers.formatDecimal(total, 1, 2) + ' kr.'}">
+                    179.00 kr.
+                </span>
             </div>
 
             <div class="pickupWrapper">
                 <label for="pickupDate">Pickup date:</label>
-                <select id="pickupDate" name="pickupDate" form="confirmForm">
-                    <option selected value="13 april">13 april</option>
-                    <option value="14 april">14 april</option>
-                    <option value="15 april">15 april</option>
-                </select>
+                <select id="pickupDate" name="pickupDate" form="confirmForm"></select>
             </div>
         </div>
 
@@ -102,12 +125,18 @@
 
         <div class="confirmButtonWrapper">
             <form method="post" action="/basket/confirm" id="confirmForm">
-                <button type="submit" class="confirmButton">Confirm</button>
+                <button type="submit"
+                        class="confirmButton"
+                        id="confirmButton"
+                        th:disabled="${basket == null or #lists.isEmpty(basket)}">
+                    Confirm
+                </button>
             </form>
         </div>
     </div>
 
 </div>
 
+<script src="/js/YourBasket.js"></script>
 </body>
 </html>

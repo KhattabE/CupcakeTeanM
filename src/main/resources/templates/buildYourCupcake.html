@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>The Cupcake Co.</title>
@@ -20,16 +20,21 @@
         <div id="saldoBox">
             <span id="saldoText">Saldo:</span>
             <div id="saldoAmount">
-                <span>198.99 kr.</span>
+                <span th:text="${currentUser != null ? #numbers.formatDecimal(currentUser.balance, 1, 2) + ' kr.' : '0.00 kr.'}">
+                    198.99 kr.
+                </span>
             </div>
         </div>
 
         <h1>The Cupcake Co. 🧁</h1>
 
         <div id="profileBox">
-            <a href="#">Profile (mail@gmail.com)</a>
+            <a href="#"
+               th:text="${currentUser != null ? 'Profile (' + currentUser.email + ')' : 'Profile'}">
+                Profile (mail@gmail.com)
+            </a>
             <span>/</span>
-            <a href="#">Basket</a>
+            <a href="/basket">Basket</a>
         </div>
     </div>
 
@@ -46,54 +51,24 @@
 
                 <div class="sectioncontent">
 
-                    <label class="card">
-                        <input type="radio" name="topping" value="Chocolate" data-price="15">
+                    <label class="card" th:each="top, stat : ${toppings}">
+                        <input type="radio"
+                               name="topping"
+                               th:value="${top.cupcakeTopId}"
+                               th:attr="data-price=${top.price}"
+                               th:checked="${stat.first}">
                         <div class="cardHeader">
-                            <span class="cardName">Chocolate</span>
+                            <span class="cardName" th:text="${top.topping}">Chocolate</span>
                             <span class="customRadio"></span>
                         </div>
-                        <img src="/images/CocoTop.png" alt="Chocolate topping">
-                        <span class="price">15kr</span>
-                    </label>
 
-                    <label class="card">
-                        <input type="radio" name="topping" value="Strawberry" data-price="55">
-                        <div class="cardHeader">
-                            <span class="cardName">Strawberry</span>
-                            <span class="customRadio"></span>
-                        </div>
-                        <img src="/images/StrawBerryTop.png" alt="Strawberry topping">
-                        <span class="price">55kr</span>
-                    </label>
+                        <img th:if="${top.topping == 'Chocolate'}" src="/images/CocoTop.png" alt="Chocolate topping">
+                        <img th:if="${top.topping == 'Vanilla'}" src="/images/VanilaTop.png" alt="Vanilla topping">
+                        <img th:if="${top.topping == 'Nutmeg'}" src="/images/NutsTop.png" alt="Nutmeg topping">
+                        <img th:if="${top.topping == 'Pistacio'}" src="/images/PestTop.png" alt="Pistachio topping">
+                        <img th:if="${top.topping == 'Strawberry'}" src="/images/StrawBerryTop.png" alt="Strawberry topping">
 
-                    <label class="card">
-                        <input type="radio" name="topping" value="Vanilla" data-price="10" checked>
-                        <div class="cardHeader">
-                            <span class="cardName">Vanilla</span>
-                            <span class="customRadio"></span>
-                        </div>
-                        <img src="/images/VanilaTop.png" alt="Vanilla topping">
-                        <span class="price">10kr</span>
-                    </label>
-
-                    <label class="card">
-                        <input type="radio" name="topping" value="Pistachio" data-price="17">
-                        <div class="cardHeader">
-                            <span class="cardName">Pistachio</span>
-                            <span class="customRadio"></span>
-                        </div>
-                        <img src="/images/PestTop.png" alt="Pistachio topping">
-                        <span class="price">17kr</span>
-                    </label>
-
-                    <label class="card">
-                        <input type="radio" name="topping" value="Almond" data-price="40">
-                        <div class="cardHeader">
-                            <span class="cardName">Almond</span>
-                            <span class="customRadio"></span>
-                        </div>
-                        <img src="/images/NutsTop.png" alt="Almond topping">
-                        <span class="price">40kr</span>
+                        <span class="price" th:text="${top.price + 'kr'}">15kr</span>
                     </label>
 
                 </div>
@@ -104,54 +79,24 @@
 
                 <div class="sectioncontent">
 
-                    <label class="card">
-                        <input type="radio" name="bottom" value="Chocolate" data-price="10" checked>
+                    <label class="card" th:each="bottomChoice, stat : ${bottoms}">
+                        <input type="radio"
+                               name="bottom"
+                               th:value="${bottomChoice.cupcakeBottomId}"
+                               th:attr="data-price=${bottomChoice.price}"
+                               th:checked="${stat.first}">
                         <div class="cardHeader">
-                            <span class="cardName">Chocolate</span>
+                            <span class="cardName" th:text="${bottomChoice.bottom}">Chocolate</span>
                             <span class="customRadio"></span>
                         </div>
-                        <img src="/images/CocoBottom.png" alt="Chocolate bottom">
-                        <span class="price">10kr</span>
-                    </label>
 
-                    <label class="card">
-                        <input type="radio" name="bottom" value="Strawberry" data-price="45">
-                        <div class="cardHeader">
-                            <span class="cardName">Strawberry</span>
-                            <span class="customRadio"></span>
-                        </div>
-                        <img src="/images/BottomOne.png" alt="Strawberry bottom">
-                        <span class="price">45kr</span>
-                    </label>
+                        <img th:if="${bottomChoice.bottom == 'Chocolate'}" src="/images/CocoBottom.png" alt="Chocolate bottom">
+                        <img th:if="${bottomChoice.bottom == 'Vanilla'}" src="/images/BottomOne.png" alt="Vanilla bottom">
+                        <img th:if="${bottomChoice.bottom == 'Nutmeg'}" src="/images/BottomTwo.png" alt="Nutmeg bottom">
+                        <img th:if="${bottomChoice.bottom == 'Pistacio'}" src="/images/BottomThree.png" alt="Pistacio bottom">
+                        <img th:if="${bottomChoice.bottom == 'Almond'}" src="/images/BottomFour.png" alt="Almond bottom">
 
-                    <label class="card">
-                        <input type="radio" name="bottom" value="Vanilla" data-price="20">
-                        <div class="cardHeader">
-                            <span class="cardName">Vanilla</span>
-                            <span class="customRadio"></span>
-                        </div>
-                        <img src="/images/BottomTwo.png" alt="Vanilla bottom">
-                        <span class="price">20kr</span>
-                    </label>
-
-                    <label class="card">
-                        <input type="radio" name="bottom" value="Pistachio" data-price="10">
-                        <div class="cardHeader">
-                            <span class="cardName">Pistachio</span>
-                            <span class="customRadio"></span>
-                        </div>
-                        <img src="/images/BottomThree.png" alt="Pistachio bottom">
-                        <span class="price">10kr</span>
-                    </label>
-
-                    <label class="card">
-                        <input type="radio" name="bottom" value="Almond" data-price="50">
-                        <div class="cardHeader">
-                            <span class="cardName">Almond</span>
-                            <span class="customRadio"></span>
-                        </div>
-                        <img src="/images/BottomFour.png" alt="Almond bottom">
-                        <span class="price">50kr</span>
+                        <span class="price" th:text="${bottomChoice.price + 'kr'}">10kr</span>
                     </label>
 
                 </div>
@@ -170,7 +115,7 @@
                 </div>
 
                 <div class="priceDisplay">
-                    <span id="totalPrice">Price: 20 kr</span>
+                    <span id="totalPrice">Price: 0 kr</span>
                 </div>
 
                 <button type="submit" class="basketButton">Add to basket</button>

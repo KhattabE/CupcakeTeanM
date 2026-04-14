@@ -3,6 +3,7 @@ package app;
 import app.config.SessionConfig;
 import app.config.ThymeleafConfig;
 import app.controllers.BasketController;
+import app.controllers.CupcakeController;
 import app.controllers.MainController;
 import app.controllers.UserController;
 import app.persistence.ConnectionPool;
@@ -18,6 +19,10 @@ public class Main {
 
     private static final ConnectionPool connectionPool =
             ConnectionPool.getInstance(USER, PASSWORD, URL, DB);
+
+    public static ConnectionPool getConnectionPool() {
+        return connectionPool;
+    }
 
     public static void main(String[] args) {
 
@@ -36,7 +41,7 @@ public class Main {
             config.routes.post("/signin", UserController::handleSignIn);
 
             config.routes.get("/view-all-users", MainController::viewAllUsers);
-            config.routes.get("/build-cupcake", MainController::buildYourCupcake);
+            config.routes.get("/build-cupcake", CupcakeController::buildYourCupcake);
             config.routes.get("/orders", MainController::yourOrders);
             config.routes.get("/admin-profile", MainController::adminProfile);
             config.routes.get("/menu", MainController::menu);
