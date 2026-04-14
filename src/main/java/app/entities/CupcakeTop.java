@@ -1,10 +1,9 @@
 package app.entities;
 
 public class CupcakeTop {
-
-    private int cupcakeTopId;
-    private String topping;
-    private double price;
+    private final int cupcakeTopId;
+    private final String topping;
+    private final double price;
 
     public CupcakeTop(int cupcakeTopId, String topping, double price) {
         this.cupcakeTopId = cupcakeTopId;
@@ -22,17 +21,5 @@ public class CupcakeTop {
 
     public double getPrice() {
         return price;
-    }
-
-    public void setCupcakeTopId(int cupcakeTopId) {
-        this.cupcakeTopId = cupcakeTopId;
-    }
-
-    public void setTopping(String topping) {
-        this.topping = topping;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 }

@@ -1,6 +1,8 @@
 package app.controllers;
 
 import app.entities.BasketItem;
+import app.entities.CupcakeBottom;
+import app.entities.CupcakeTop;
 import app.entities.OrderLine;
 import app.entities.User;
 import app.persistence.ConnectionPool;
@@ -17,13 +19,42 @@ import java.util.List;
 public class BasketController {
 
     public static void addToBasket(Context ctx) {
-        String topping = ctx.formParam("topping");
-        String bottom = ctx.formParam("bottom");
-        int quantity = Integer.parseInt(ctx.formParam("quantity"));
+        String toppingIdParam = ctx.formParam("topping");
+        String bottomIdParam = ctx.formParam("bottom");
+        String quantityParam = ctx.formParam("quantity");
 
-        double unitPrice = getPriceFromChoice(topping, bottom);
+        if (toppingIdParam == null || bottomIdParam == null || quantityParam == null) {
+            ctx.status(400).result("Missing form data");
+            return;
+        }
 
-        BasketItem item = new BasketItem(topping, bottom, quantity, unitPrice);
+        int toppingId = Integer.parseInt(toppingIdParam);
+        int bottomId = Integer.parseInt(bottomIdParam);
+        int quantity = Integer.parseInt(quantityParam);
+
+        if (quantity < 1) {
+            quantity = 1;
+        }
+
+        ConnectionPool connectionPool = ConnectionPool.getInstance();
+        CupcakeMapper cupcakeMapper = new CupcakeMapper(connectionPool);
+
+        CupcakeTop toppingChoice = cupcakeMapper.getToppingById(toppingId);
+        CupcakeBottom bottomChoice = cupcakeMapper.getBottomById(bottomId);
+
+        if (toppingChoice == null || bottomChoice == null) {
+            ctx.status(400).result("Invalid cupcake selection");
+            return;
+        }
+
+        double unitPrice = toppingChoice.getPrice() + bottomChoice.getPrice();
+
+        BasketItem item = new BasketItem(
+                toppingChoice.getTopping(),
+                bottomChoice.getBottom(),
+                quantity,
+                unitPrice
+        );
 
         List<BasketItem> basket = ctx.sessionAttribute("basket");
         if (basket == null) {
@@ -159,27 +190,5 @@ public class BasketController {
         ctx.sessionAttribute("basket", new ArrayList<BasketItem>());
 
         ctx.redirect("/orders");
-    }
-
-    private static double getPriceFromChoice(String topping, String bottom) {
-        double toppingPrice = switch (topping) {
-            case "Chocolate" -> 15;
-            case "Strawberry" -> 55;
-            case "Vanilla" -> 10;
-            case "Pistachio" -> 17;
-            case "Almond" -> 40;
-            default -> 0;
-        };
-
-        double bottomPrice = switch (bottom) {
-            case "Chocolate" -> 10;
-            case "Strawberry" -> 45;
-            case "Vanilla" -> 20;
-            case "Pistachio" -> 10;
-            case "Almond" -> 50;
-            default -> 0;
-        };
-
-        return toppingPrice + bottomPrice;
     }
 }

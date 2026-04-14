@@ -2,6 +2,7 @@ package app.controllers;
 
 
 import app.entities.BasketItem;
+import app.entities.User;
 import io.javalin.http.Context;
 
 import java.util.ArrayList;
@@ -16,10 +17,6 @@ public class MainController {
 
     public static void viewAllUsers(Context ctx) {
         ctx.render("viewAllUsers.html");
-    }
-
-    public static void buildYourCupcake(Context ctx) {
-        ctx.render("buildYourCupcake.html");
     }
 
 
