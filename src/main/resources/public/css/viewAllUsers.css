@@ -25,6 +25,19 @@ body {
     margin-bottom: 50px;
 }
 
+.backBtn {
+    position: absolute;
+    left: 20px;
+    top: 50px;
+    background-color: #7a0f5c;
+    color: white;
+    border: 2px solid #cfcfcf;
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .admin-box,
 .profile-box {
     background-color: #e89ad7;

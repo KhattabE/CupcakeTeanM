@@ -49,7 +49,9 @@ public class UserController {
         User user = userMapper.validateLogin(email, password);
 
         if (user == null) {
-            ctx.result("Wrong email or password");
+            ctx.attribute("error", "Wrong email or password. Try again.");
+            ctx.attribute("email", email);
+            ctx.render("signin.html");
             return;
         }
 
