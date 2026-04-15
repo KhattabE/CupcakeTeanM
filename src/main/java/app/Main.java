@@ -2,10 +2,7 @@ package app;
 
 import app.config.SessionConfig;
 import app.config.ThymeleafConfig;
-import app.controllers.BasketController;
-import app.controllers.CupcakeController;
-import app.controllers.MainController;
-import app.controllers.UserController;
+import app.controllers.*;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinThymeleaf;
@@ -44,6 +41,8 @@ public class Main {
             config.routes.get("/build-cupcake", CupcakeController::buildYourCupcake);
             config.routes.get("/orders", MainController::yourOrders);
             config.routes.get("/admin-profile", MainController::adminProfile);
+            config.routes.get("/profile", UserController::profile);
+            config.routes.get("/logout", UserController::logout);
             config.routes.get("/menu", MainController::menu);
 
             config.routes.get("/basket", BasketController::yourBasket);

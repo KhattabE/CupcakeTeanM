@@ -77,6 +77,11 @@ body {
     text-align: center;
 }
 
+.headerTitleLink {
+    color: inherit;
+    text-decoration: none;
+}
+
 #profileBox {
     display: flex;
     align-items: center;

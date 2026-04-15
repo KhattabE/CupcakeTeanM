@@ -36,7 +36,6 @@ public class UserController {
         ctx.redirect("/signin");
     }
 
-
     public static void signIn(Context ctx) {
         ctx.render("signin.html");
     }
@@ -49,14 +48,39 @@ public class UserController {
         User user = userMapper.validateLogin(email, password);
 
         if (user == null) {
-            ctx.attribute("error", "Wrong email or password. Try again.");
-            ctx.attribute("email", email);
-            ctx.render("signin.html");
+            ctx.result("Wrong email or password");
             return;
         }
 
         ctx.sessionAttribute("currentUser", user);
         ctx.redirect("/menu");
+    }
+
+    public static void profile(Context ctx) {
+        User sessionUser = ctx.sessionAttribute("currentUser");
+
+        if (sessionUser == null) {
+            ctx.redirect("/signin");
+            return;
+        }
+
+        UserMapper userMapper = new UserMapper(ConnectionPool.getInstance());
+        User currentUser = userMapper.getUserById(sessionUser.getUserId());
+
+        if (currentUser == null) {
+            ctx.sessionAttribute("currentUser", null);
+            ctx.redirect("/signin");
+            return;
+        }
+
+        ctx.sessionAttribute("currentUser", currentUser);
+        ctx.attribute("currentUser", currentUser);
+        ctx.render("profile.html");
+    }
+
+    public static void logout(Context ctx) {
+        ctx.sessionAttribute("currentUser", null);
+        ctx.redirect("/signin");
     }
 }
 
