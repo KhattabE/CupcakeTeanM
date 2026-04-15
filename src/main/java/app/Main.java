@@ -53,6 +53,7 @@ public class Main {
             config.routes.post("/basket/confirm", BasketController::confirmBasket);
             config.routes.get("/view-all-orders", MainController::viewAllOrders);
             config.routes.post("/admin/delete-order", MainController::deleteOrder);
+            config.routes.get("/adminviewspecificuser/{id}", MainController::viewSpecificUser);
         }).start(7070);
     }
 }

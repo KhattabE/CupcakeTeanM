@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="/js/features.js"></script>
+    <meta charset="UTF-8">
+    <title>Admin UI - View all users</title>
+    <link rel="stylesheet" href="/css/adminViewAllUsers.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="admin-box">
+            <p>Admin</p>
+        </div>
+
+        <div class="logo-title">
+            <h1>
+                <a href="/admin-profile" class="headerTitleLink">The Cupcake Co. 🧁</a>
+            </h1>
+        </div>
+
+        <div class="profile-box">
+            <a href="/admin-profile" class="profileLink">
+                Profile (
+                <span th:text="${currentUser.email}">Admin@gmail.com</span>
+                )
+            </a>
+        </div>
+    </div>
+
+    <div class="admin-card">
+        <h2>Admin UI</h2>
+
+        <div class="users-list">
+
+                <div class="user-row" th:each="user : ${users}">
+                    <div class="user-info">
+                        <h3 th:text="${user.firstName + ' ' + user.lastName}">Khalo</h3>
+                        <p th:text="${user.email}">Khalo@gmail.com</p>
+                    </div>
+                    <div class="user-action">
+                        <a th:href="@{'/adminviewspecificuser/' + ${user.userId}}">
+                            <button type="button">View orders</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

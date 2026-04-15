@@ -1,12 +1,12 @@
 package app.controllers;
 
 
-import app.entities.BasketItem;
 import app.entities.Orders;
 import app.entities.User;
 import app.persistence.ConnectionPool;
 import app.persistence.OrderLineMapper;
 import app.persistence.OrderMapper;
+import app.persistence.UserMapper;
 import io.javalin.http.Context;
 
 import java.util.ArrayList;
@@ -22,7 +22,24 @@ public class MainController {
     }
 
     public static void viewAllUsers(Context ctx) {
-        ctx.render("viewAllUsers.html");
+        User currentUser = ctx.sessionAttribute("currentUser");
+
+        if (currentUser == null) {
+            ctx.redirect("/signin");
+            return;
+        }
+
+        if (!"admin".equalsIgnoreCase(currentUser.getRole())) {
+            ctx.redirect("/profile");
+            return;
+        }
+
+        UserMapper userMapper = new UserMapper(ConnectionPool.getInstance());
+        List<User> users = userMapper.getAllUsers();
+
+        ctx.attribute("currentUser", currentUser);
+        ctx.attribute("users", users);
+        ctx.render("adminViewAllUsers.html");
     }
 
 
@@ -127,7 +144,42 @@ public class MainController {
 
         orderMapper.deleteOrderById(orderId);
 
-        ctx.redirect("/view-all-orders");
+        String userId = ctx.formParam("userId");
+
+        if (userId != null) {
+            ctx.redirect("/adminviewspecificuser/" + userId);
+        } else {
+            ctx.redirect("/view-all-orders");
+        }
     }
 
+
+    public static void viewSpecificUser(Context ctx) {
+        User currentUser = ctx.sessionAttribute("currentUser");
+
+        if (currentUser == null) {
+            ctx.redirect("/signin");
+            return;
+        }
+
+        if (!"admin".equalsIgnoreCase(currentUser.getRole())) {
+            ctx.redirect("/profile");
+            return;
+        }
+
+        int userId = Integer.parseInt(ctx.pathParam("id"));
+
+        ConnectionPool connectionPool = ConnectionPool.getInstance();
+        UserMapper userMapper = new UserMapper(connectionPool);
+        OrderMapper orderMapper = new OrderMapper(connectionPool);
+
+        User selectedUser = userMapper.getUserById(userId);
+        List<Orders> orders = orderMapper.getOrdersByUserId(userId);
+
+        ctx.attribute("currentUser", currentUser);
+        ctx.attribute("selectedUser", selectedUser);
+        ctx.attribute("orders", orders);
+
+        ctx.render("AdminViewSpecificUser.html");
+    }
 }
