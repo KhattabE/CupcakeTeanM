@@ -133,6 +133,10 @@ body {
     position: relative;
     min-height: 520px;
     box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
 }
 
 .columnTitle {
@@ -157,8 +161,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 22px;
+
+    flex: 1;
+    min-height: 0;
     max-height: 470px;
     overflow-y: auto;
+
     padding-right: 10px;
     box-sizing: border-box;
 }
@@ -183,6 +191,8 @@ body {
     box-shadow: 0 4px 8px rgba(91, 39, 93, 0.2);
     overflow: hidden;
     box-sizing: border-box;
+
+    flex-shrink: 0;
 }
 
 .orderHeader {
@@ -211,7 +221,7 @@ body {
     display: flex;
     gap: 16px;
     padding: 14px 16px 8px 16px;
-    align-items: center;
+    align-items: flex-start;
     box-sizing: border-box;
 }
 
@@ -231,6 +241,7 @@ body {
 
 .orderText {
     flex: 1;
+    min-width: 0;
 }
 
 .orderText p {

@@ -142,4 +142,40 @@ public class OrderLineMapper {
 
         return null;
     }
+
+    public List<String> getOrderLineDescriptionsByOrderId(int orderId) {
+        String sql = """
+        SELECT ol.quantity, b.bottom, t.topping
+        FROM order_lines ol
+        JOIN cupcake c ON ol.cupcake_id = c.cupcake_id
+        JOIN "cupcakeBottom" b ON c.cupcake_bottom_id = b.cupcake_bottom_id
+        JOIN "cupcakeTop" t ON c.cupcake_top_id = t.cupcake_top_id
+        WHERE ol.order_id = ?
+        ORDER BY ol.order_line_id
+        """;
+
+        List<String> descriptions = new ArrayList<>();
+
+        try (
+                Connection connection = connectionPool.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql)
+        ) {
+            preparedStatement.setInt(1, orderId);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                int quantity = rs.getInt("quantity");
+                String bottom = rs.getString("bottom");
+                String topping = rs.getString("topping");
+
+                descriptions.add(quantity + "x " + bottom + " + " + topping + " topping");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("An error has happened in getOrderLineDescriptionsByOrderId: " + sql);
+        }
+
+        return descriptions;
+    }
 }
