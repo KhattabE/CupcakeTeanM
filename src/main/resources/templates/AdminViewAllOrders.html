@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin UI - Orders</title>
   <link rel="stylesheet" href="/css/AdminViewAllOrders.css">
-  <script src="/js/features.js"></script>
 </head>
 <body>
 
 <div class="page-wrapper">
 
   <header class="topbar">
-    <button onclick="goBack()" class="backBtn">← Back</button>
-
     <div class="admin-badge">Admin</div>
 
     <h1 class="logo-title">
-      The Cupcake Co. <span class="cupcake-icon">🧁</span>
+      <a href="/admin-profile" class="headerTitleLink">The Cupcake Co. 🧁</a>
     </h1>
+
+
+
 
     <div class="profile">
       Profile (
@@ -29,7 +29,7 @@
 
   <main class="admin-panel">
     <h2>Admin UI</h2>
-    <div class="blue-line"></div>
+    <div class="boxline"></div>
 
     <section class="orders-list">
 
@@ -46,10 +46,10 @@
         </div>
 
         <div class="order-status"
-             th:classappend="${order.status == 'COMPLETED'} ? ' completed' : ' in-process'">
-                    <span th:text="${order.status == 'COMPLETED'} ? 'Completed 🟢' : 'In process 🟡'">
-                        In process 🟡
-                    </span>
+             th:classappend="${#strings.equalsIgnoreCase(order.status, 'Completed')} ? ' completed' : ' in-process'">
+    <span th:text="${#strings.equalsIgnoreCase(order.status, 'Completed')} ? 'Completed 🟢' : 'In process 🟡'">
+        In process 🟡
+    </span>
         </div>
 
         <form th:action="@{/admin/delete-order}" method="post">
