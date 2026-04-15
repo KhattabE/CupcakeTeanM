@@ -65,6 +65,19 @@ public class MainController {
     }
 
     public static void adminProfile(Context ctx) {
+        User currentUser = ctx.sessionAttribute("currentUser");
+
+        if (currentUser == null) {
+            ctx.redirect("/signin");
+            return;
+        }
+
+        if (!"admin".equalsIgnoreCase(currentUser.getRole())) {
+            ctx.redirect("/profile");
+            return;
+        }
+
+        ctx.attribute("currentUser", currentUser);
         ctx.render("AdminUIProfile.html");
     }
 
@@ -93,5 +106,28 @@ public class MainController {
         ctx.render("AdminViewAllOrders.html");
     }
 
+
+    public static void deleteOrder(Context ctx) {
+        User currentUser = ctx.sessionAttribute("currentUser");
+
+        if (currentUser == null) {
+            ctx.redirect("/signin");
+            return;
+        }
+
+        if (!"admin".equalsIgnoreCase(currentUser.getRole())) {
+            ctx.redirect("/profile");
+            return;
+        }
+
+        int orderId = Integer.parseInt(ctx.formParam("orderId"));
+
+        ConnectionPool connectionPool = ConnectionPool.getInstance();
+        OrderMapper orderMapper = new OrderMapper(connectionPool);
+
+        orderMapper.deleteOrderById(orderId);
+
+        ctx.redirect("/view-all-orders");
+    }
 
 }

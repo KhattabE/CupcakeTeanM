@@ -5,19 +5,13 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-image: url("../images/cupcake_background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     min-height: 100vh;
-
-    background:
-            radial-gradient(circle at 15% 20%, #8d2f79 0 18%, transparent 18%),
-            radial-gradient(circle at 45% 10%, #b456b0 0 16%, transparent 16%),
-            radial-gradient(circle at 72% 18%, #5d0056 0 22%, transparent 22%),
-            radial-gradient(circle at 88% 12%, #b53c99 0 18%, transparent 18%),
-            radial-gradient(circle at 22% 78%, #6a0b68 0 22%, transparent 22%),
-            radial-gradient(circle at 58% 82%, #b13fa5 0 24%, transparent 24%),
-            radial-gradient(circle at 82% 76%, #4f0a45 0 20%, transparent 20%),
-            linear-gradient(135deg, #7e2c74, #5d0056, #8d2f79);
-
     display: flex;
     justify-content: center;
     padding: 40px 20px;
@@ -54,6 +48,15 @@ body {
     font-weight: 400;
 }
 
+.headerTitleLink,
+.headerTitleLink:visited,
+.headerTitleLink:hover,
+.headerTitleLink:active {
+    color: black;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+}
+
 .cupcake-icon {
     font-size: 40px;
 }
@@ -78,10 +81,10 @@ body {
     margin-bottom: 10px;
 }
 
-.blue-line {
+.boxline {
     width: 80%;
     height: 4px;
-    background: #3498db;
+    background: #f69ee5;
     margin: 0 auto 20px;
 }
 
@@ -133,7 +136,7 @@ body {
 }
 
 .completed {
-    color: green;
+    color: #ffffff;
 }
 
 .delete-btn {
@@ -149,17 +152,4 @@ body {
 
 .delete-btn:hover {
     transform: scale(1.05);
-}
-
-.backBtn {
-    position: absolute;
-    left: 20px;
-    top: 50px;
-    background-color: #7a0f5c;
-    color: white;
-    border: 2px solid #cfcfcf;
-    border-radius: 12px;
-    padding: 8px 16px;
-    font-weight: bold;
-    cursor: pointer;
 }

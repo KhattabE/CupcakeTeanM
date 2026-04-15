@@ -207,4 +207,32 @@ public class OrderMapper {
         }
     }
 
+    public void deleteOrderById(int orderId) {
+        String deleteOrderLinesSql = "DELETE FROM order_lines WHERE order_id = ?";
+        String deleteOrderSql = "DELETE FROM orders WHERE order_id = ?";
+
+        try (Connection conn = connectionPool.getConnection()) {
+            conn.setAutoCommit(false);
+
+            try (PreparedStatement psLines = conn.prepareStatement(deleteOrderLinesSql);
+                 PreparedStatement psOrder = conn.prepareStatement(deleteOrderSql)) {
+
+                psLines.setInt(1, orderId);
+                psLines.executeUpdate();
+
+                psOrder.setInt(1, orderId);
+                psOrder.executeUpdate();
+
+                conn.commit();
+            } catch (SQLException e) {
+                conn.rollback();
+                throw new RuntimeException("Error deleting order with id " + orderId, e);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Database error while deleting order", e);
+        }
+    }
+
+
 }

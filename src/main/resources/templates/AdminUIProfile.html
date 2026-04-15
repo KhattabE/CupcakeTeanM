@@ -9,25 +9,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <script src="/js/features.js"></script>
-
 </head>
 <body>
 
 <div class="pagewrapper">
 
     <div class="topbar">
-        <button onclick="goBack()" class="backBtn">← Back</button>
         <div id="adminBox">
             <h3>Admin</h3>
         </div>
 
         <div id="companyName">
-            <h2>The Cupcake Co. 🧁</h2>
+            <h2>
+                <a href="/menu" class="headerTitleLink">The Cupcake Co. 🧁</a>
+            </h2>
         </div>
 
         <div id="adminProfile">
-            <h4>Profile (Admin@gmail.com)</h4>
+            <h4 th:text="${currentUser != null ? 'Profile (' + currentUser.email + ')' : 'Profile'}">
+                Profile (admin@gmail.com)
+            </h4>
         </div>
     </div>
 
@@ -40,21 +41,30 @@
 
             <div class="profileRow">
                 <h3 class="profileLabel">Name:</h3>
-                <p class="profileValue">Admin</p>
+                <p class="profileValue"
+                   th:text="|${currentUser.firstName} ${currentUser.lastName}|">
+                    Admin
+                </p>
             </div>
 
             <hr class="boxline">
 
             <div class="profileRow">
                 <h3 class="profileLabel">Email:</h3>
-                <p class="profileValue">admin@gmail.com</p>
+                <p class="profileValue"
+                   th:text="${currentUser.email}">
+                    admin@gmail.com
+                </p>
             </div>
 
             <hr class="boxline">
 
             <div class="profileRow">
                 <h3 class="profileLabel">Role:</h3>
-                <p class="profileValue">Administrator</p>
+                <p class="profileValue"
+                   th:text="${currentUser.role}">
+                    Administrator
+                </p>
             </div>
 
             <hr class="boxline">
