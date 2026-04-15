@@ -11,27 +11,24 @@
 </head>
 <body>
 
-<div class="topbar">
-    <button onclick="goBack()" class="backBtn">← Back</button>
-    <a href="#">Order cupcakes here</a>
-</div>
-
 <div class="pagewrapper">
 
     <div class="headerbox">
         <div id="saldoBox">
             <span id="saldoText">Saldo:</span>
             <div id="saldoAmount">
-                <span th:text="${currentUser != null ? #numbers.formatDecimal(currentUser.balance, 1, 2) + ' kr.' : '0.00 kr.'}">
-                    198.99 kr.
-                </span>
+            <span th:text="${currentUser != null ? #numbers.formatDecimal(currentUser.balance, 1, 2) + ' kr.' : '0.00 kr.'}">
+                198.99 kr.
+            </span>
             </div>
         </div>
 
-        <h1>The Cupcake Co. 🧁</h1>
+        <h1>
+            <a href="/menu" class="headerTitleLink">The Cupcake Co. 🧁</a>
+        </h1>
 
         <div id="profileBox">
-            <a href="#"
+            <a href="/profile"
                th:text="${currentUser != null ? 'Profile (' + currentUser.email + ')' : 'Profile'}">
                 Profile (mail@gmail.com)
             </a>

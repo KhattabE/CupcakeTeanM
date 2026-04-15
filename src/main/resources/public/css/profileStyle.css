@@ -1,11 +1,82 @@
 body{
+    margin: 0;
+    font-family: "Inter", sans-serif;
     background-image: url("../images/cupcake_background.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     min-height: 100vh;
-    margin: 0;
     color: white;
+}
+
+.headerbox {
+    width: 92%;
+    max-width: 1280px;
+    min-height: 84px;
+    background: #eab6e3;
+    border: 2px solid black;
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 26px;
+    box-sizing: border-box;
+    margin: 30px auto 70px auto;
+}
+
+#saldoBox {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#saldoText {
+    color: #6f1868;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+#saldoAmount {
+    background: #ec9bdd;
+    padding: 14px 24px;
+    border-radius: 14px;
+    border: 1px solid black;
+    font-size: 18px;
+    font-weight: 800;
+    color: black;
+    min-width: 135px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.headerbox h1 {
+    margin: 0;
+    font-size: 64px;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    color: black;
+    text-align: center;
+    line-height: 1;
+}
+
+.headerTitleLink {
+    color: inherit;
+    text-decoration: none;
+    font: inherit;
+}
+
+#profileBox {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#profileBox a,
+#profileBox span {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .infoTextLeft{

@@ -12,19 +12,11 @@
 </head>
 <body>
 
-<div class="topbar">
-    <div id="info">
-        <a href="#about" class="infoTextLeft">About</a>
-        <a href="#contact" class="infoTextLeft">Contact</a>
-    </div>
-    <div id="frontsideheader">
-        <h2>Design your own cupcake 🧁</h2>
-    </div>
-    <div id="signinfo">
-        <a href="/signup" class="infoTextRight">Sign up</a>
-        <a href="/signin" class="infoTextRight">Sign in</a>
-    </div>
-    <button onclick="goBack()" class="backBtn">← Back</button>
+<div class="headerbox">
+
+    <h1>
+        <a href="/" class="headerTitleLink">The Cupcake Co. 🧁</a>
+    </h1>
 
 </div>
 
@@ -46,7 +38,7 @@
             <input type="password" name="password" placeholder="Password" required>
         </div>
 
-        <p th:if="${error}" th:text="${error}" style="color:red; font-weight:bold; text-align:center;"></p>
+        <p th:if="${error}" th:text="${error}" class="errorMessage"></p>
 
         <a href="#" id="forgotPassword">Forgot password</a>
 

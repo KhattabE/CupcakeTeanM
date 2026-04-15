@@ -11,15 +11,27 @@
 </head>
 <body>
 
-
-<button onclick="goBack()" class="backBtn">← Back</button>
-<div class="topbar">
-    <div id="info">
-        <a href="#about" class="infoTextLeft">About</a>
-        <a href="#contact" class="infoTextLeft">Contact</a>
+<div class="headerbox">
+    <div id="saldoBox">
+        <span id="saldoText">Saldo:</span>
+        <div id="saldoAmount">
+            <span th:text="${currentUser != null ? #numbers.formatDecimal(currentUser.balance, 1, 2) + ' kr.' : '0.00 kr.'}">
+                198.99 kr.
+            </span>
+        </div>
     </div>
-    <div id="frontsideheader">
-        <h2>The Cupcake Co. 🧁</h2>
+
+    <h1>
+        <a href="/menu" class="headerTitleLink">The Cupcake Co. 🧁</a>
+    </h1>
+
+    <div id="profileBox">
+        <a href="/profile"
+           th:text="${currentUser != null ? 'Profile (' + currentUser.email + ')' : 'Profile'}">
+            Profile (mail@gmail.com)
+        </a>
+        <span>/</span>
+        <a href="/basket">Basket</a>
     </div>
 </div>
 

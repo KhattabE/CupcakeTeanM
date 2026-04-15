@@ -69,6 +69,9 @@ public class MainController {
     }
 
     public static void menu(Context ctx) {
+        User currentUser = ctx.sessionAttribute("currentUser");
+
+        ctx.attribute("currentUser", currentUser);
         ctx.render("menu.html");
     }
 

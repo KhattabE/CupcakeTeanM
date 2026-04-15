@@ -54,7 +54,7 @@ body {
     align-items: center;
     padding: 0 26px;
     box-sizing: border-box;
-    margin-bottom: 78px;
+    margin: 30px auto 70px auto;
 }
 
 #saldoBox {
@@ -86,8 +86,16 @@ body {
     margin: 0;
     font-size: 64px;
     font-weight: 400;
+    font-family: "Inter", sans-serif;
     color: black;
     text-align: center;
+    line-height: 1;
+}
+
+.headerTitleLink {
+    color: inherit;
+    text-decoration: none;
+    font: inherit;
 }
 
 #profileBox {
