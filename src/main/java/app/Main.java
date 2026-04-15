@@ -51,6 +51,7 @@ public class Main {
             config.routes.post("/basket/decrease", BasketController::decreaseBasketItem);
             config.routes.post("/basket/remove", BasketController::removeBasketItem);
             config.routes.post("/basket/confirm", BasketController::confirmBasket);
+            config.routes.get("/view-all-orders", MainController::viewAllOrders);
         }).start(7070);
     }
 }

@@ -75,7 +75,23 @@ public class MainController {
         ctx.render("menu.html");
     }
 
+    public static void viewAllOrders(Context ctx) {
+        User currentUser = ctx.sessionAttribute("currentUser");
 
+        if (currentUser == null) {
+            ctx.redirect("/signin");
+            return;
+        }
+
+        ConnectionPool connectionPool = ConnectionPool.getInstance();
+        OrderMapper orderMapper = new OrderMapper(connectionPool);
+
+        List<Orders> orders = orderMapper.getAllOrders();
+
+        ctx.attribute("currentUser", currentUser);
+        ctx.attribute("orders", orders);
+        ctx.render("AdminViewAllOrders.html");
+    }
 
 
 }

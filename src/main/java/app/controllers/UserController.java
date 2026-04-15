@@ -76,6 +76,12 @@ public class UserController {
         }
 
         ctx.sessionAttribute("currentUser", currentUser);
+
+        if ("admin".equalsIgnoreCase(currentUser.getRole())) {
+            ctx.redirect("/admin-profile");
+            return;
+        }
+
         ctx.attribute("currentUser", currentUser);
         ctx.render("profile.html");
     }

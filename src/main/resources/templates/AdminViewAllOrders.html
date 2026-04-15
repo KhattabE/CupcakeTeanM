@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin UI - Orders</title>
-  <link rel="stylesheet" href="../public/css/AdminViewAllOrders.css">
+  <link rel="stylesheet" href="/css/AdminViewAllOrders.css">
   <script src="/js/features.js"></script>
-
 </head>
 <body>
 
@@ -14,6 +13,7 @@
 
   <header class="topbar">
     <button onclick="goBack()" class="backBtn">← Back</button>
+
     <div class="admin-badge">Admin</div>
 
     <h1 class="logo-title">
@@ -33,25 +33,25 @@
 
     <section class="orders-list">
 
-      <!-- LOOP -->
+      <div th:if="${#lists.isEmpty(orders)}">
+        <p style="color: white; text-align:center;">No orders found</p>
+      </div>
+
       <div class="order-card" th:each="order : ${orders}">
 
         <div class="order-info">
           <h3 th:text="'Order #' + ${order.orderId}">Order #1</h3>
-          <p th:text="${order.email}">user@gmail.com</p>
+          <p th:text="'User ID: ' + ${order.userId}">User ID: 1</p>
+          <p th:text="'Pickup: ' + ${order.pickup}">Pickup</p>
         </div>
 
-        <!-- STATUS -->
         <div class="order-status"
              th:classappend="${order.status == 'COMPLETED'} ? ' completed' : ' in-process'">
-
                     <span th:text="${order.status == 'COMPLETED'} ? 'Completed 🟢' : 'In process 🟡'">
                         In process 🟡
                     </span>
-
         </div>
 
-        <!-- DELETE -->
         <form th:action="@{/admin/delete-order}" method="post">
           <input type="hidden" name="orderId" th:value="${order.orderId}">
           <button type="submit" class="delete-btn">Delete</button>
