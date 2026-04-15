@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Admin UI</title>
@@ -15,15 +15,22 @@
 <div class="pagewrapper">
 
     <div class="topbar">
-        <button onclick="goBack()" class="backBtn">← Back</button>
-        <div id="adminBox"><h3>Admin</h3></div>
+        <div id="adminBox">
+            <h3>Admin</h3>
+        </div>
 
-        <div id="companyName">
-            <h2>The Cupcake Co. 🧁</h2>
+        <div id="titleName">
+            <h2>
+                <a href="/admin-profile" class="headerTitleLink">The Cupcake Co. 🧁</a>
+            </h2>
         </div>
 
         <div id="adminProfile">
-            <h4>Profile (Admin@gmail.com)</h4>
+            <h4>
+                Profile (
+                <span th:text="${currentUser.email}">admin@gmail.com</span>
+                )
+            </h4>
         </div>
     </div>
 
@@ -37,41 +44,41 @@
 
             <div class="orderCard bigCard">
                 <div class="orderInfo">
-                    <h3>Khalo</h3>
-                    <p>Khalo@gmail.com</p>
+                    <h3 th:text="${selectedUser.firstName + ' ' + selectedUser.lastName}">
+                        Khalo
+                    </h3>
+                    <p th:text="${selectedUser.email}">
+                        Khalo@gmail.com
+                    </p>
                 </div>
 
                 <div class="rightInfo">
-                    <span class="infoBox">Saldo: -0.03kr</span>
-                    <span class="infoBox">Orders: 3</span>
+                    <span class="infoBox"
+                          th:text="'Saldo: ' + ${#numbers.formatDecimal(selectedUser.balance,1,2)} + ' kr'">
+                        Saldo: -0.03kr
+                    </span>
+
+                    <span class="infoBox"
+                          th:text="'Orders: ' + ${orders.size()}">
+                        Orders: 3
+                    </span>
                 </div>
             </div>
 
-            <div class="orderCard">
+            <div class="orderCard" th:each="order : ${orders}">
                 <div class="orderInfo">
-                    <h3>Order #1</h3>
-                    <p>10kr</p>
+                    <h3 th:text="'Order #' + ${order.orderId}">Order #1</h3>
+                    <p th:text="${#numbers.formatDecimal(order.total,1,2)} + ' kr'">
+                        10kr
+                    </p>
                 </div>
 
-                <button class="deleteButton">Delete</button>
-            </div>
-
-            <div class="orderCard">
-                <div class="orderInfo">
-                    <h3>Order #34</h3>
-                    <p>120kr</p>
-                </div>
-
-                <button class="deleteButton">Delete</button>
-            </div>
-
-            <div class="orderCard">
-                <div class="orderInfo">
-                    <h3>Order #11</h3>
-                    <p>100kr</p>
-                </div>
-
-                <button class="deleteButton">Delete</button>
+                <form th:action="@{/admin/delete-order}" method="post">
+                    <input type="hidden" name="orderId" th:value="${order.orderId}">
+                    <input type="hidden" name="userId" th:value="${selectedUser.userId}">
+                    <button type="submit" class="deleteButton">Delete</button>
+                </form>
+                </form>
             </div>
 
         </div>

@@ -1,0 +1,185 @@
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-image: url("../images/cupcake_background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    padding-top: 20px;
+}
+
+.header {
+    position: relative;
+    width: 92%;
+    max-width: 1400px;
+    height: 80px;
+    margin: 20px auto 50px auto;
+    background: #eab6e3;
+    border: 2px solid black;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.admin-box {
+    position: absolute;
+    left: 20px;
+    min-width: 110px;
+    height: 42px;
+    background: #df92d4;
+    border: 1.5px solid #7b4b74;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-box p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.profile-box {
+    position: absolute;
+    right: 20px;
+    min-width: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #df92d4;
+    border: 1.5px solid #7b4b74;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.profileLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    color: inherit;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.profileLink:visited,
+.profileLink:hover,
+.profileLink:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+.logo-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo-title h1 {
+    margin: 0;
+    font-size: 55px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.headerTitleLink {
+    color: inherit;
+    text-decoration: none;
+    font: inherit;
+}
+
+.headerTitleLink:visited,
+.headerTitleLink:hover,
+.headerTitleLink:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+.admin-card {
+    width: 70%;
+    margin: 0 auto;
+    background-color: #f3f3f3;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 20px 30px 30px;
+}
+
+.admin-card h2 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 2rem;
+    border-bottom: 2px solid #e7b0d8;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.users-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 460px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px;
+}
+
+.users-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.users-list::-webkit-scrollbar-thumb {
+    background: #c76ab8;
+    border-radius: 10px;
+}
+
+.users-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.user-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e89ad7;
+    border: 1px solid #666;
+    border-radius: 10px;
+    padding: 12px 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.user-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.5rem;
+}
+
+.user-info p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.user-action button {
+    background-color: white;
+    border: 1px solid #666;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.user-action button:hover {
+    background-color: #f2f2f2;
+}

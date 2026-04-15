@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserMapper {
     private ConnectionPool connectionPool;
@@ -163,6 +165,36 @@ public class UserMapper {
         }
     }
 
+
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
+
+        String sql = "SELECT * FROM users ORDER BY user_id ASC";
+
+        try (Connection conn = connectionPool.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                User user = new User(
+                        rs.getInt("user_id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getString("email"),
+                        rs.getString("password_hash"),
+                        rs.getDouble("balance"),
+                        rs.getString("role")
+                );
+
+                users.add(user);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error getting all users", e);
+        }
+
+        return users;
+    }
 
 
 }
