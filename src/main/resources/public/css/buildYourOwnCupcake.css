@@ -9,14 +9,27 @@ body {
 }
 
 .topbar {
-    padding: 12px 48px;
+    width: 92%;
+    max-width: 1280px;
+    min-height: 84px;
+    background: #6f1868;
+    border: 2px solid #caa2c3;
+    border-radius: 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 26px;
+    box-sizing: border-box;
+
+    margin: 24px auto 30px auto;
 }
 
 .topbar a {
-    color: #a8a8a8;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 400;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .pagewrapper {
@@ -110,18 +123,19 @@ body {
 
 #builderTitleBox {
     position: absolute;
-    top: -26px;
+    top: -30px;
     left: 50%;
     transform: translateX(-50%);
-    background: #df92d4;
-    padding: 10px 34px;
-    border-radius: 14px;
-    border: 2px solid black;
-    font-size: 28px;
-    font-weight: 800;
+    background: #7a0f5c;
+    border: 2px solid #caa2c3;
+    border-radius: 18px;
+    padding: 8px 40px;
+    font-size: 40px;
+    font-weight: 700;
     color: white;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
+
+    box-shadow: none;
+    text-shadow: none;
 }
 
 .sectionbox {

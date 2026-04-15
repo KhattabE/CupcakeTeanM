@@ -1,12 +1,17 @@
-body{
+body {
     margin: 0;
     font-family: "Inter", sans-serif;
     background-image: url("../images/cupcake_background.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: auto;
     color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .headerbox {
@@ -22,7 +27,7 @@ body{
     text-align: center;
     padding: 0 26px;
     box-sizing: border-box;
-    margin: 30px auto 70px auto;
+    margin: 24px auto 40px auto;
 }
 
 .headerbox h1 {
@@ -82,34 +87,32 @@ body{
     font-weight: 300;
 }
 
-.signinBox{
+.signinBox {
     outline: 3px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    margin: auto;
+    margin: 0 auto;
     border-radius: 25px;
-    width: 600px;
-    height: 700px;
+    width: 560px;
+    height: auto;
+    padding-bottom: 30px;
     background: white;
 }
 
-#signinButton{
-    display: flex;
-    justify-content: center;
-}
-
-#signinButton button{
+#signinButton button {
     outline: 2px solid black;
     border-radius: 25px;
     width: 400px;
-    margin-top: 80px;
+    margin-top: 40px;
     background-color: #67E687;
     font-size: 2em;
     font-weight: bold;
     font-family: "Inter";
 }
+
+
 
 #forgotPassword{
     text-decoration: none;
