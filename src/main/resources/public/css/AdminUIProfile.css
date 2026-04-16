@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-image: url("../images/cupcake_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color: black;
+}
+
+.pagewrapper {
+    width: 100%;
+    min-height: 100vh;
+    padding: 28px 0 48px;
+    box-sizing: border-box;
+}
+
+.topbar {
+    width: 88%;
+    max-width: 1140px;
+    min-height: 72px;
+    margin: 0 auto 62px;
+    padding: 0 12px 0 8px;
+    background: #e7b0dd;
+    border: 2px solid black;
+    border-radius: 18px;
+    display: grid;
+    grid-template-columns: 160px 1fr 260px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.adminBadge {
+    justify-self: start;
+    min-width: 128px;
+    text-align: center;
+    padding: 12px 22px;
+    background: linear-gradient(180deg, #df9ad3 0%, #d789c9 100%);
+    border: 1.5px solid #6b3a68;
+    border-radius: 12px;
+    color: #6e1f69;
+    font-size: 18px;
+    font-weight: 800;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+    box-sizing: border-box;
+}
+
+.topbar h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 46px;
+    font-weight: 400;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.headerTitleLink,
+.headerTitleLink:visited,
+.headerTitleLink:hover,
+.headerTitleLink:active {
+    color: inherit;
+    text-decoration: none;
+    font: inherit;
+}
+
+.profilePreview {
+    justify-self: end;
+    text-align: right;
+}
+
+.profilePreview a {
+    color: black;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.contentwrapper {
+    width: 88%;
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.mainobjectbox,
+.adminUIBar {
+    min-height: 505px;
+    background: #efefef;
+    border: 2px solid black;
+    border-radius: 22px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.18);
+    box-sizing: border-box;
+    padding: 18px 46px 34px;
+}
+
+#myProfileText,
+.panelTitle {
+    margin: 0;
+    text-align: center;
+    color: black;
+    font-size: 31px;
+    font-weight: 800;
+}
+
+.boxline {
+    border: 0;
+    border-top: 2px solid #efb5e4;
+    margin: 24px 0 28px;
+}
+
+.infoRow {
+    display: grid;
+    grid-template-columns: 106px 1fr;
+    align-items: center;
+    gap: 0;
+    min-height: 58px;
+}
+
+.profileInfoText {
+    color: black;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.profileInfoValueText {
+    color: black;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.profileActions {
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+.actionButton {
+    width: 100%;
+    max-width: 445px;
+    min-height: 54px;
+    border: 1.5px solid black;
+    border-radius: 12px;
+    background: #da91cf;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16);
+    color: black;
+    font-family: "Inter", sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.adminFeaturesText {
+    margin: 0 0 20px;
+    color: black;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.adminFeatureList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.adminLink {
+    text-decoration: none;
+    color: inherit;
+}
+
+.adminActionButton {
+    width: 100%;
+    min-height: 54px;
+    background: #da91cf;
+    border: 1.5px solid black;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px 18px;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.actionButton:hover,
+.adminActionButton:hover,
+.profilePreview a:hover,
+.headerTitleLink:hover {
+    filter: brightness(0.98);
+}
+
+@media (max-width: 980px) {
+    .topbar {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 16px 18px;
+    }
+
+    .adminBadge,
+    .profilePreview {
+        justify-self: center;
+        text-align: center;
+    }
+
+    .topbar h1 {
+        font-size: 38px;
+    }
+
+    .contentwrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .pagewrapper {
+        padding-top: 20px;
+    }
+
+    .topbar,
+    .contentwrapper {
+        width: 94%;
+    }
+
+    .mainobjectbox,
+    .adminUIBar {
+        padding: 18px 20px 28px;
+    }
+
+    .topbar h1 {
+        font-size: 30px;
+    }
+
+    .infoRow {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        min-height: auto;
+    }
+
+    .profileInfoText,
+    .profileInfoValueText,
+    .adminFeaturesText,
+    .adminActionButton,
+    .actionButton {
+        font-size: 17px;
+    }
+
+    #myProfileText,
+    .panelTitle {
+        font-size: 28px;
+    }
+}

@@ -83,16 +83,6 @@ body {
     font-weight: 700;
 }
 
-.infoTextLeft {
-    color: black;
-    margin-left: 20px;
-}
-
-.infoTextRight {
-    color: black;
-    margin-right: 20px;
-}
-
 #frontsideheader {
     position: absolute;
     left: 50%;
@@ -194,7 +184,7 @@ body {
     border-radius: 25px;
     width: 500px;
     height: 500px;
-    background: #11161c;
+    background: white;
     box-sizing: border-box;
 }
 
