@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     font-family: "Inter", sans-serif;
     background-image: url("../images/cupcake_background.png");
@@ -7,6 +7,9 @@ body{
     background-position: center;
     min-height: 100vh;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .headerbox {
@@ -21,7 +24,8 @@ body{
     align-items: center;
     padding: 0 26px;
     box-sizing: border-box;
-    margin: 30px auto 70px auto;
+    margin: 24px auto 40px auto;
+    position: relative;
 }
 
 #saldoBox {
@@ -79,147 +83,136 @@ body{
     font-weight: 700;
 }
 
-
-.infoTextLeft{
-    color:black;
+.infoTextLeft {
+    color: black;
     margin-left: 20px;
 }
 
-.infoTextRight{
-    color:black;
+.infoTextRight {
+    color: black;
     margin-right: 20px;
 }
 
-#frontsideheader{
+#frontsideheader {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 
-#frontsideheader h2{
-    font-family: "Inter";
+#frontsideheader h2 {
+    font-family: "Inter", sans-serif;
     font-size: 42px;
     margin: 0;
 }
 
-#frontsidetitle{
+#frontsidetitle {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2em;
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
 }
 
-#buildYourCupcake button{
+#buildYourCupcake button,
+#viewOrders button,
+#viewBasket button {
     outline: 2px solid black;
-    width: 500px;
-    height: 100px;
-    border-radius: 25px;
-    margin-top: 120px;
-    background-color: #F69EE5;
-    font-size: 2em;
+    width: 430px;
+    height: 70px;
+    border-radius: 20px;
+    background-color: #f69ee5;
+    font-size: 1.8em;
     font-weight: bold;
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
 }
 
-#viewBasket button{
-    outline: 2px solid black;
-    width: 500px;
-    height: 100px;
-    border-radius: 25px;
-    margin-top: 20px;
-    background-color: #F69EE5;
-    font-size: 2em;
-    font-weight: bold;
-    font-family: "Inter";
+#buildYourCupcake button {
+    margin-top: 70px;
 }
 
-#viewOrders button{
-    outline: 2px solid black;
-    width: 500px;
-    height: 100px;
-    border-radius: 25px;
-    margin-top: 20px;
-    background-color: #F69EE5;
-    font-size: 2em;
-    font-weight: bold;
-    font-family: "Inter";
+#viewOrders button,
+#viewBasket button {
+    margin-top: 18px;
 }
 
-#createUserText{
+#createUserText {
     display: flex;
-    color:black;
+    color: black;
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
 }
 
-.pinkoutertitlebox{
+.pinkoutertitlebox {
     outline: 3px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    margin: 0 auto -30px auto;
-    border-radius:15px;
+    justify-content: center;
+    margin: 0 auto -26px auto;
+    border-radius: 15px;
     position: relative;
     z-index: 2;
+    width: 330px;
+    height: 70px;
+    background: #f69ee5;
+}
+
+.pinkoutertitlebox h2 {
+    font-family: "Inter", sans-serif;
+    color: black;
+    font-size: 34px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.pinkouterbox {
+    outline: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 auto 40px auto;
+    border-radius: 25px;
+    width: 560px;
+    height: auto;
+    padding-bottom: 30px;
+    background: #f69ee5;
+    padding-top: 46px;
+    box-sizing: border-box;
+}
+
+.mainobjectbox {
+    outline: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 auto;
+    border-radius: 25px;
     width: 500px;
-    height: 60px;
-    background: #F69EE5;
+    height: 500px;
+    background: #11161c;
+    box-sizing: border-box;
 }
 
-.pinkoutertitlebox h2{
-    font-family: inter;
-    color:black;
-    font-size: 40px;
-    margin:auto;
-}
-
-.pinkouterbox{
-    outline: 3px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    margin: auto;
-    border-radius: 25px;
-    width: 630px;
-    height: 840px;
-    background: #F69EE5;
-}
-
-.mainobjectbox{
-    outline: 3px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    margin: auto;
-    margin-top: 70px;
-    border-radius: 25px;
-    width: 600px;
-    height: 740px;
-    background: white;
-}
-
-.boxline{
+.boxline {
     display: block;
     height: 2px;
-    width: 80%;
+    width: 78%;
     border: 0;
-    border-top: 2px solid #F69EE5;
-    margin: 1em 0;
-    margin-top: 50px;
+    border-top: 2px solid #f69ee5;
+    margin: 36px 0 6px 0;
     padding: 0;
 }
 
-::placeholder{
+::placeholder {
     color: black;
 }
 
-.topbar{
+.topbar {
     outline: 3px solid black;
     position: relative;
     display: flex;
@@ -227,25 +220,12 @@ body{
     align-items: center;
     margin: auto;
     margin-top: 30px;
-    border-radius: 10px;
     margin-bottom: 200px;
-    font-family: "Inter";
-    color:black;
-    width:70%;
-    height:90px;
-    background:white;
+    border-radius: 10px;
+    font-family: "Inter", sans-serif;
+    color: black;
+    width: 70%;
+    height: 90px;
+    background: white;
     padding: 0 30px;
-}
-
-.backBtn {
-    position: absolute;
-    left: 20px;
-    top: 50px;
-    background-color: #7a0f5c;
-    color: white;
-    border: 2px solid #cfcfcf;
-    border-radius: 12px;
-    padding: 8px 16px;
-    font-weight: bold;
-    cursor: pointer;
 }
