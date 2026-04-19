@@ -23,16 +23,4 @@ public class Cupcake {
     public int getCupcakeBottomId() {
         return cupcakeBottomId;
     }
-
-    public void setCupcakeId(int cupcakeId) {
-        this.cupcakeId = cupcakeId;
-    }
-
-    public void setCupcakeTopId(int cupcakeTopId) {
-        this.cupcakeTopId = cupcakeTopId;
-    }
-
-    public void setCupcakeBottomId(int cupcakeBottomId) {
-        this.cupcakeBottomId = cupcakeBottomId;
-    }
 }

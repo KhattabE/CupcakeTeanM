@@ -21,47 +21,24 @@ public class OrderLine {
         return orderLineId;
     }
 
-    public void setOrderLineId(int orderLineId) {
-        this.orderLineId = orderLineId;
-    }
-
     public int getOrderId() {
         return orderId;
-    }
-
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
     }
 
     public int getCupcakeId() {
         return cupcakeId;
     }
 
-    public void setCupcakeId(int cupcakeId) {
-        this.cupcakeId = cupcakeId;
-    }
-
     public int getQuantity() {
         return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
     }
 
     public double getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(double unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
     public double getLineTotal() {
         return lineTotal;
     }
 
-    public void setLineTotal(double lineTotal) {
-        this.lineTotal = lineTotal;
-    }
 }

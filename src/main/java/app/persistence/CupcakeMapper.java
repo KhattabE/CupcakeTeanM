@@ -18,81 +18,6 @@ public class CupcakeMapper {
         this.connectionPool = connectionPool;
     }
 
-    public void createCupcake(Cupcake cupcake) {
-        String sql = """
-            INSERT INTO cupcake (cupcake_top_id, cupcake_bottom_id) VALUES (?,?)
-            """;
-
-        try (
-                Connection connection = connectionPool.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(sql)){
-
-            preparedStatement.setInt(1, cupcake.getCupcakeTopId());
-            preparedStatement.setInt(2, cupcake.getCupcakeBottomId());
-
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException e){
-            System.out.println("An error has happened in createCupcake: " + e.getMessage());
-        }
-    }
-
-    public Cupcake getCupcakeById(int cupcakeId) {
-        String sql = """
-            SELECT * FROM cupcake WHERE cupcake_id = ?
-            """;
-
-        try (
-                Connection connection = connectionPool.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(sql)){
-
-            preparedStatement.setInt(1, cupcakeId);
-
-            ResultSet rs = preparedStatement.executeQuery();
-
-            if (rs.next()) {
-                int id = rs.getInt("cupcake_id");
-                int cupcakeTopId = rs.getInt("cupcake_top_id");
-                int cupcakeBottomId = rs.getInt("cupcake_bottom_id");
-
-                return new Cupcake(id, cupcakeTopId, cupcakeBottomId);
-            }
-
-        } catch (SQLException e){
-            System.out.println("An error has happened in getCupcakeById: " + e.getMessage());
-        }
-
-        return null;
-    }
-
-    public Cupcake getCupcakeByTopAndBottom(int cupcakeTopId, int cupcakeBottomId) {
-        String sql = """
-            SELECT * FROM cupcake WHERE cupcake_top_id = ? AND cupcake_bottom_id = ?
-            """;
-
-        try (
-                Connection connection = connectionPool.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(sql)){
-
-            preparedStatement.setInt(1, cupcakeTopId);
-            preparedStatement.setInt(2, cupcakeBottomId);
-
-            ResultSet rs = preparedStatement.executeQuery();
-
-            if (rs.next()) {
-                int id = rs.getInt("cupcake_id");
-                int topId = rs.getInt("cupcake_top_id");
-                int bottomId = rs.getInt("cupcake_bottom_id");
-
-                return new Cupcake(id, topId, bottomId);
-            }
-
-        } catch (SQLException e){
-            System.out.println("An error has happened in getCupcakeByTopAndBottom: " + e.getMessage());
-        }
-
-        return null;
-    }
 
     public List<CupcakeTop> getAllToppings() {
         List<CupcakeTop> toppings = new ArrayList<>();
@@ -267,55 +192,6 @@ public class CupcakeMapper {
         return -1;
     }
 
-    public int getOrCreateCupcakeId(int cupcakeBottomId, int cupcakeTopId) {
-        String findSql = """
-        SELECT cupcake_id
-        FROM cupcake
-        WHERE cupcake_bottom_id = ? AND cupcake_top_id = ?
-        """;
-
-        try (
-                Connection connection = connectionPool.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(findSql)
-        ) {
-            preparedStatement.setInt(1, cupcakeBottomId);
-            preparedStatement.setInt(2, cupcakeTopId);
-
-            ResultSet rs = preparedStatement.executeQuery();
-
-            if (rs.next()) {
-                return rs.getInt("cupcake_id");
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Error in find cupcake by ids: " + e.getMessage());
-        }
-
-        String insertSql = """
-        INSERT INTO cupcake (cupcake_top_id, cupcake_bottom_id)
-        VALUES (?, ?)
-        RETURNING cupcake_id
-        """;
-
-        try (
-                Connection connection = connectionPool.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(insertSql)
-        ) {
-            preparedStatement.setInt(1, cupcakeTopId);
-            preparedStatement.setInt(2, cupcakeBottomId);
-
-            ResultSet rs = preparedStatement.executeQuery();
-
-            if (rs.next()) {
-                return rs.getInt("cupcake_id");
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Error in create cupcake by ids: " + e.getMessage());
-        }
-
-        return -1;
-    }
 
     private int getBottomIdByName(String bottomName) {
         String sql = """
