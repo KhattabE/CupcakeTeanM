@@ -23,47 +23,24 @@ public class Orders {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
-
     public int getUserId() {
         return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public Date getCreatedAt() {
         return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
     }
 
     public double getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
-        this.total = total;
-    }
 
     public Date getPickup() {
         return pickup;
-    }
-
-    public void setPickup(Date pickup) {
-        this.pickup = pickup;
     }
 }
